@@ -1,6 +1,6 @@
 {
-  "homepage": "http://Zigtelus.github.io/weather1",
-  "name": "weather1",
+  "homepage": "http://Zigtelus.github.io/weather",
+  "name": "weather",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

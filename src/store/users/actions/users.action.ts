@@ -14,7 +14,7 @@ export const getUsersActions = createAsyncThunk(
     let secondPartURL = `/products/`;
 
     try {
-      const res = await api.get<any>(`${secondPartURL}`);
+      const res = await api.get<string>(`${secondPartURL}`);
       return res.data;
     } catch (error) {
       console.log('getUsersAction');
