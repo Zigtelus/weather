@@ -1,0 +1,154 @@
+
+
+.weather_main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &__top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
+
+  &__temperature {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    width: 65%;
+    font-size: 1em;
+  
+  
+    &__mmm {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+  
+      &__item {
+        display: flex;
+        flex-direction: column;
+        justify-items: center;
+      }
+    }
+
+    &__middle {
+      font-size: 4em;
+    }
+  }
+
+  &__picture_weather {
+    display: flex;
+    flex-direction: column;
+    text-align: right;
+    width: 35%;
+  }
+
+  &__name_station {
+    display: inline-block;
+    padding: 10px;
+    font-size: 0.8em;
+    margin: 10px;
+    width: 100%;
+    background-color: rgba(0, 128, 0, 0.238);
+    text-align: center;
+  }
+
+  .day_and_evening {
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+  }
+  
+}
+
+
+.day {
+  width: 100%;
+  display: flex;
+  // justify-content: space-between;
+  // overflow: hidden;
+  // overflow-x: scroll;
+  position: relative;
+  top: 30px;
+  padding-top: 180px;
+  margin-bottom: 50px;
+
+
+  &__item {
+    height: 150px;
+    min-width: 159px;
+    display: flex;
+    justify-content: center;
+
+
+    span {
+      // position: absolute;
+      width: 100%;
+      height: 100%;
+    }
+
+    .wind-zero {
+      background-color: rgba(0, 0, 0, 0.462)
+    }
+
+    .wind-one {
+      background-color: rgba(0, 0, 0, 0.297)
+    }
+
+    .wind-two {
+      background-color: rgba(0, 0, 0, 0.255)
+    }
+
+    .wind-three {
+      background-color: rgba(0, 0, 0, 0.138)
+    }
+
+    .wind-three {
+      background-color: rgba(0, 0, 0, 0)
+    }
+
+    .rain-active {
+      background-color: rgba(255, 255, 0, 0.39);
+    }
+
+    .rain-notActive {
+      background-color: rgba(255, 255, 0, 0);
+    }
+
+    .clouds-zero {
+      background-color: rgba(0, 0, 255, 0);
+    }
+
+    .clouds-one {
+      background-color: rgba(41, 41, 205, 0.347);
+    }
+
+    .clouds-two {
+      background-color: rgba(69, 69, 184, 0.347);
+    }
+
+    .clouds-three {
+      background-color: rgba(0, 0, 255, 0.347);
+    }
+  }
+
+
+
+  // &::-webkit-scrollbar {
+  //   width: 16px;
+  //   border-radius: 9px;
+  //   background-color: #608bae4f;
+  //   height: 11px;
+  // }
+
+  // &::-webkit-scrollbar-thumb {
+  //   background-color: #608BAE;
+  //   border-radius: 9em;
+  // }
+  
+  // &::-webkit-scrollbar-thumb:hover {
+  //   background-color: #608bae78;
+  // }
+
+}
