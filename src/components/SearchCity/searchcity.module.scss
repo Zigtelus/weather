@@ -23,6 +23,16 @@
     border: 0px;
     border-radius: 20px;
     filter: drop-shadow(0px 0px 8px rgba(0, 0, 0, 0.5));
+
+
+
+    &:hover {
+      box-shadow: 0px 0px 0px 2px #cecece;
+    }
+
+    &:focus {
+      box-shadow: 0px 0px 0px 2px #201ac0;
+    }
   }
 
   .listCitys {

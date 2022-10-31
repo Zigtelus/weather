@@ -1,5 +1,5 @@
 import './styles/global.css';
-import './App.scss';
+import  './App.scss';
 import { useEffect, useState } from 'react';
 import Main from './components/Main';
 import { useAppDispatch, useAppSelector } from './hooks/redux';
@@ -30,6 +30,7 @@ function App() {
   //   })
   //   .then(r=>console.log(r))
   // },[])
+  
 
 
   type DataUser = {
@@ -38,7 +39,7 @@ function App() {
     lon: number,
   };
 
-
+  localStorage.removeItem('dataUser');
   const getCity = localStorage.getItem('dataUser');
 
   function setDataUser() {
@@ -85,19 +86,15 @@ function App() {
 
   useEffect(()=> {
     navigator.geolocation.getCurrentPosition(thisPosition, thisError);
+
+    if (dataUser.lat === 0)
+      thisPosition({coords: {latitude: 55.7522200, longitude: 37.6155600}});
+
   }, [0]);
-
-  if (city.main[0]?.local_names.eu) dataUser.main = city.main[0]?.local_names.eu;
-  
-  useEffect(()=> {
-    if (city.main[0]?.local_names.eu) dispatch(nowtimeAction());
-    if (city.main[0]?.local_names.eu) dispatch(fiveDaysAction());
-  }, [dataUser.main]);
-
 
 
   return (
-    <div className="App" >
+    <div className='App' >
       <Registration />
       <Navigation />
       <Main />

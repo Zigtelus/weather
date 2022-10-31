@@ -1,7 +1,8 @@
+import React, { ReactNode } from 'react';
 import './index.scss';
 
 type Props = {
-  componentt: any;
+  componentt: ReactNode;
 };
 
 const ScrollBarBaseStyle = {

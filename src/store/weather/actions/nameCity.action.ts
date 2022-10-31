@@ -24,11 +24,9 @@ export const nameCityAction = createAsyncThunk(
         // moscow
         // const secondPartURL = `/geo/1.0/reverse?lat=55.7522200&lon=37.6155600&appid=94d073c2667e3ab1d500b71c487bdf7c`;
 
-        console.log('nameCityAction');
-        console.log(secondPartURL);
 
         try {
-            const res = await api.get<any>(`${secondPartURL}`);
+            const res = await api.get<string>(`${secondPartURL}`);
             return res.data;
         } catch (e) {
             console.log('nameCityAction');

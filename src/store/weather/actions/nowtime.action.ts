@@ -25,13 +25,8 @@ export const nowtimeAction = createAsyncThunk(
         // dataUser.main && (secondPartURL = `/data/2.5/weather?q=${dataUser.main.trim()}&appid=${KEY}&lang=ru`);
 
 
-
-
-        console.log('nowtimeAction')
-        console.log(secondPartURL)
-
         try {
-            const res = await api.get<any>(`${secondPartURL}`);
+            const res = await api.get<string>(`${secondPartURL}`);
             return res.data;
         } catch (e) {
             console.log('nowtimeAction' + secondPartURL)
