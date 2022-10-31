@@ -8,17 +8,21 @@ import { City, ListFiveDays } from "src/types/weather/fiveDays";
 import { relative } from "path";
 import { sunriseSunset } from "src/helpers/sunriseSunset";
 
-type Props = {
+type PictureWeatherHokType = {
+  [className: string]: string
+}
+
+type PictureWeatherBaseType = {
   weatherNow: Nowtime | ListFiveDays;
   city?: City;
 }
 
 
 
-const PictureWeatherHok = (style: any)=> {
+const PictureWeatherHok = (style: PictureWeatherHokType)=> {
     
 
-  const PictureWeatherBase: React.FC <Props> = ({weatherNow, city})=> {
+  const PictureWeatherBase: React.FC <PictureWeatherBaseType> = ({weatherNow, city})=> {
 
     const addNight = city && sunriseSunset(city.sunrise, city.sunset, weatherNow.dt);
 

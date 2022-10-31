@@ -28,7 +28,7 @@ export const nameCityAction = createAsyncThunk(
         console.log(secondPartURL);
 
         try {
-            const res = await api.get<any>(`${secondPartURL}`);
+            const res = await api.get<string>(`${secondPartURL}`);
             return res.data;
         } catch (e) {
             console.log('nameCityAction');

@@ -13,7 +13,7 @@ export const listOfCitiesAction = createAsyncThunk(
         let secondPartURL = "/citys?city=%D0%BF%D0%B0%D0%BD";
         
         try {
-            const res = await api.get<any>(`${secondPartURL}`);
+            const res = await api.get<string>(`${secondPartURL}`);
             return res.data;
         } catch (error) {
             console.log('listOfCitiesAction')

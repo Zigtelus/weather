@@ -1,4 +1,4 @@
-import { MouseEvent, useRef, useState } from "react";
+import { MouseEvent, MutableRefObject, useRef, useState } from "react";
 import { useAppDispatch, useAppSelector } from "../../hooks/redux";
 import s from './searchcity.module.scss'
 import glassIcon from './assets/glass.svg'
@@ -26,10 +26,8 @@ function SearchCity(): JSX.Element {
 
   const [country, setCountry] = useState<number>(0);
   const [isDataUser, setDataUser] = useState<DataUser>(dataUser);
-
-
-  const inputEl = useRef<any>(null);
-  const searchCity = useRef<any>(null);
+  const inputEl = useRef() as MutableRefObject<HTMLInputElement>;
+  const searchCity = useRef() as MutableRefObject<HTMLInputElement>;
 
 
   const listCitiesHandler = (e: MouseEvent<HTMLUListElement>)=> {
@@ -39,6 +37,7 @@ function SearchCity(): JSX.Element {
     dispatch(fiveDaysAction());
     setCountry(country+1);
 
+    
     const indexCity = cities.kz.indexOf(inputEl.current.value)
     setDataUser({...isDataUser, main: citysEN[indexCity]});
     inputEl.current.value = '';
@@ -430,7 +429,26 @@ function SearchCity(): JSX.Element {
     "Экибастуз",
     "Эмба"
     ],
-  } as {ru: string[]; kz: string[]}
+    am: [
+      "Аревик",
+      "Арзни",
+      "Артик",
+      "Аштарак",
+      "Ереван",
+      "Ванадзор",
+      "Йегегнадзор",
+      "Гарни",
+      "Гехард",
+      "Горис",
+      "Гюмри",
+      "Севан",
+      "Двин",
+      "Джермук",
+      "Дзорагет",
+      "Дилижан",
+      "Цахкадзор",
+    ]
+  } as {ru: string[]; kz: string[], am: string[]}
 
 
   const searchCitys = () => {
