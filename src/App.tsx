@@ -85,13 +85,13 @@ function App() {
   };
 
   useEffect(()=> {
-    navigator.geolocation.getCurrentPosition(thisPosition, thisError);
 
-    if (dataUser.lat === 0)
+    if (dataUser.lat === 0){
       thisPosition({coords: {latitude: 55.7522200, longitude: 37.6155600}});
-
+    } else {
+      navigator.geolocation.getCurrentPosition(thisPosition, thisError);
+    }
   }, [0]);
-
 
   return (
     <div className='App' >
