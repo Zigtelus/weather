@@ -24,14 +24,12 @@ export const fiveDaysAction = createAsyncThunk(
 
     // let secondPartURL = `/data/2.5/forecast?lat=43.2659375&lon=76.9580137&appid=${KEY}&lang=ru`;
     
-    console.log('fiveDaysAction')
     // console.log(secondPartURL)
 
     try {
-      const res = await api.get<any>(`${secondPartURL}`);
+      const res = await api.get<string>(`${secondPartURL}`);
       return res.data;
     } catch (error) {
-      console.log('fiveDaysAction')
       console.log('error ', error);
     };
       

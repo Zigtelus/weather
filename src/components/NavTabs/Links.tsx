@@ -25,7 +25,7 @@ function Links ({days}: Props): JSX.Element {
         id={`${index}`}
         key={index}
         className={s.tabs}
-        to={`${dateWeather[item]}`}
+        to={`weather${dateWeather[item]}`}
       >
         {days[item]}
       </NavLink>

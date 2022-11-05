@@ -14,7 +14,9 @@ export const addUsersAction = async (body?: Body)=> {
   const secondPartURL = `/products`;
 
   try {
-    const res = await api.post<any>(`${secondPartURL}/user`, body);
+    const res = await api.post<string>(`${secondPartURL}/user`, body);
+    console.log('secondPartURL')
+    console.log(secondPartURL)
     return res.data;
   } catch (error) {
     console.log('addUsersAction');

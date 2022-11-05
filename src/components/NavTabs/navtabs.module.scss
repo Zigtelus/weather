@@ -5,7 +5,7 @@
   display: flex;
   justify-content: space-between;  
 
-  .tabs{
+  .tabs {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -15,9 +15,17 @@
     white-space: nowrap;
     color: #ffffff;
     text-align: center;
+
+    &:hover {
+      color: #cecece;
+    }
+
+    &:focus {
+      color: #33007a;
+    }
   }
 
-  .flag{
+  .flag {
     position: absolute;
     width: 75px;
     height: 6px;
