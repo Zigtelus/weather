@@ -95,7 +95,7 @@ function App() {
 
   return (
     <div className='App' >
-      <Registration />
+      {/* <Registration /> */}
       <Navigation />
       <Main />
     </div>

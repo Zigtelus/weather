@@ -6,8 +6,8 @@ import { dateWeather } from "../../routes";
 type Props = {
   days: {
     today: string,
-    fiveDays: string,
-    run: string,
+    // fiveDays: string,
+    // run: string,
   }
 };
 
