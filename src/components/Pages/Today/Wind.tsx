@@ -1,5 +1,5 @@
 import hours from "src/helpers/hours";
-import { ScrollBarHOK } from "src/hoks/scrollBar/index.hok";
+import { ScrollBarHOK } from "src/hocs/scrollBar/index.hoc";
 import { ListFiveDays } from "src/types/weather/fiveDays";
 
 

@@ -11,10 +11,11 @@ function NavTabs(): JSX.Element {
   const tableTabs = useRef<HTMLDivElement | null>(null);
 
 
+
   const days = {
     "today": 'Сейчас',
-    "fiveDays": '5 дней',
-    "run": 'run'
+    // "fiveDays": '5 дней',
+    // "run": 'run'
   };
 
   
@@ -26,6 +27,8 @@ function NavTabs(): JSX.Element {
     const offset = (tableTabsWidth / lengthObject - 75) / 2;
 
     let i = 0;
+
+    
     while (i < lengthObject) {
       const item = i * (tableTabsWidth / lengthObject) + offset;
       position.push(`${item}px`);

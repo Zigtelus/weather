@@ -7,7 +7,7 @@ import hours from 'src/helpers/hours';
 import Now from './Now';
 import Pop from './Pop';
 import Wind from './Wind';
-import { ScrollBarHOK } from 'src/hoks/scrollBar/index.hok';
+import { ScrollBarHOK } from 'src/hocs/scrollBar/index.hoc';
 
 
 function NowtimeWeather(): JSX.Element {

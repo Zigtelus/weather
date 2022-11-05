@@ -12,7 +12,7 @@ type InitialState = {
 
 const initialState: InitialState = {     
   main: {
-      "_id": "631dd4e5f3cfab6bf50e6b29",
+    "_id": "631dd4e5f3cfab6bf50e6b29",
     "title": "qwsddswqw",
     "price": 322,
     "id": "22122",

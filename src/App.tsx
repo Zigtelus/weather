@@ -30,6 +30,7 @@ function App() {
   //   })
   //   .then(r=>console.log(r))
   // },[])
+  
 
 
   type DataUser = {
@@ -84,32 +85,17 @@ function App() {
   };
 
   useEffect(()=> {
-    navigator.geolocation.getCurrentPosition(thisPosition, thisError);
 
-    // console.log('navigator.geolocation')
-    // console.log(qq)
-
-      
-
-
-    if (dataUser.lat === 0)
-      thisPosition({coords: {latitude: 55.7522200, longitude: 37.6155600}})
-
-
+    if (dataUser.lat === 0){
+      thisPosition({coords: {latitude: 55.7522200, longitude: 37.6155600}});
+    } else {
+      navigator.geolocation.getCurrentPosition(thisPosition, thisError);
+    }
   }, [0]);
-
-  if (city.main[0]?.local_names.eu) dataUser.main = city.main[0]?.local_names.eu;
-  
-  useEffect(()=> {
-    if (city.main[0]?.local_names.eu) dispatch(nowtimeAction());
-    if (city.main[0]?.local_names.eu) dispatch(fiveDaysAction());
-  }, [dataUser.main]);
-
-
 
   return (
     <div className='App' >
-      <Registration />
+      {/* <Registration /> */}
       <Navigation />
       <Main />
     </div>
