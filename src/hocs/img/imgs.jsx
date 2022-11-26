@@ -13,7 +13,7 @@ const cloud2 = <svg style={{...style1, right: '0px', top: '20px'}} xmlns="http:/
 </svg>
 
 
-const rain = <svg style={style1} version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" xmlnsXlink="http://www.w3.org/1999/xlink" enable-background="new 0 0 512 512">
+const rain = <svg style={style1} version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" xmlnsXlink="http://www.w3.org/1999/xlink" enableBackground="new 0 0 512 512">
   <g>
     <g>
       <path d="m93.4,12.6c-10.4-4.4-22.4,0.6-26.7,11l-25.3,61.1c-4.3,10.4 0.6,22.4 11,26.7 10.4,4.3 22.4-0.6 26.7-11l25.3-61.1c4.3-10.5-0.6-22.4-11-26.7z"/>
@@ -33,7 +33,7 @@ const rain = <svg style={style1} version="1.1" xmlns="http://www.w3.org/2000/svg
 
 
 const sun = <svg style={{...style1, width: '50%', right: '0px'}} version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 viewBox="0 0 456.54 456.54" enable-background='new 0 0 456.54 456.54' xmlSpace="preserve">
+	 viewBox="0 0 456.54 456.54" enableBackground='new 0 0 456.54 456.54' xmlSpace="preserve">
 <g>
 	<rect x="215.27" y="379.3" fill='#FFDE55' width="26" height="77.24"/>
 	<rect x="215.27" fill='#FFDE55' width="26" height="77.24"/>
@@ -56,7 +56,7 @@ const sun = <svg style={{...style1, width: '50%', right: '0px'}} version="1.1" i
 
 
 const wind1 = <svg style={style1} version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 width="45.864px" height="45.865px" viewBox="0 0 45.864 45.865" enable-background="new 0 0 45.864 45.865;"
+	 width="45.864px" height="45.865px" viewBox="0 0 45.864 45.865" enableBackground="new 0 0 45.864 45.865;"
 	 xmlSpace="preserve">
 <g>
 	<g>

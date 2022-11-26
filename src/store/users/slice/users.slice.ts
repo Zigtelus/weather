@@ -6,17 +6,31 @@ import { getUsersActions } from "../actions/users.action";
 
 
 type InitialState = {
-  main: Users
+  main: {
+    "name": string,
+    "password": string,
+    "email": string,
+    "age": number,
+    "coords": {
+        "latitude": number,
+        "longitude": number,
+        "city": string,
+    }
+  }
 }
 
 
 const initialState: InitialState = {     
   main: {
-      "_id": "631dd4e5f3cfab6bf50e6b29",
-    "title": "qwsddswqw",
-    "price": 322,
-    "id": "22122",
-    "__v": 0
+    "name": "1",
+    "password": "eeeee",
+    "email": "e@qq.dadwedd",
+    "age": 1,
+    "coords": {
+        "latitude": 1,
+        "longitude": 1,
+        "city": "1"
+    }
   }
 }
 
@@ -33,7 +47,9 @@ export const ussersSlice = createSlice({
   },
   extraReducers: {
     [getUsersActions.fulfilled.type]: (state, action) => {
-        state.main = {...action.payload};
+      console.log('action.payload')
+      console.log(action.payload)
+      state.main = {...action.payload};
     },
     [getUsersActions.pending.type]: (state, action)=> {},
     [getUsersActions.rejected.type]: (state, action) => console.log('error')

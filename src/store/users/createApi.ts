@@ -1,7 +1,7 @@
 import axios, { AxiosInstance } from "axios";
 
 
-const BASE_URL = 'http://localhost:3000/';
+const BASE_URL = 'https://weather-back-deploy.herokuapp.com/main/api/';
 const REQUEST_TIMEOUT = 1000;
 
 
