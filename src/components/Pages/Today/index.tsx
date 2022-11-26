@@ -19,18 +19,32 @@ function NowtimeWeather(): JSX.Element {
 
   const listFiveDays = fiveDaysWeather.main.list;
 
+  let arrayTemps: number = 0;
+
   const ScrollBar = ScrollBarHOK();
   const itemsDay = <div className="day">
     {
       listFiveDays
       .filter((item, index) => (1 < index && index < 11))
-      .map((item) => {
+      .map((item, index) => {
+
+        let tempIt = converTemp(item.main.temp, 'kelvin')
+
+        if (index === 0) {
+          arrayTemps = -(5 * tempIt)
+        }
+
+        if (item.main.temp < 0) {
+          tempIt = -tempIt
+        }
+
+
         const chour = hours(item.dt_txt);
         return <div key={item.dt} className="day__item">
-          <div>
+          <div style={{"display": "flex", "alignItems": "center", "flexDirection": "column"}}>
 
-            <div style={{position: 'relative', display: 'flex', justifyContent: 'center'}}>
-              <div style={{position: 'absolute', bottom: `${40 + (9* converTemp(item.main.temp, 'kelvin'))}px`}}>{converTemp(item.main.temp, 'kelvin')}°</div>
+            <div style={{position: 'absolute', top: '90px', display: 'flex', justifyContent: 'center'}}>
+              <div style={{position: 'absolute', bottom: `${arrayTemps - (-(5* tempIt))}px`}}>{converTemp(item.main.temp, 'kelvin')}°</div>
             </div>
 
             <div style={{position: 'relative', width: '100px', height: '100px', borderRadius: '10%', overflow: 'hidden', boxShadow: '0px 0px 10px -3px black',}}>

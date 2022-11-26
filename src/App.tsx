@@ -59,16 +59,25 @@ function App() {
   const dispatch = useAppDispatch();
 
   const city = useAppSelector(state => state.getNameCityReducer);
+  const ddddd = useAppSelector(state => state.ussersReducer);
 
   const [country, setCountry] = useState<number>(0);
 
+  // console.log(ddddd)
+
   const body = {
-    "title": "§§§§",
-    "price": 121233,
-    "id": "22352354",
+    "name": "1",
+    "password": `${new Date()}`,
+    "email": "e@ALEVTINA.gypsy",
+    "age": 1,
+    "coords": {
+        "latitude": 23432,
+        "longitude": 23432,
+        "city": "23432"
+    },
+    "role": "admin"
   };
 
-  // addUsersAction(body)
   
   const thisPosition = (position: Coords )=> {
     dataUser.lat = position.coords.latitude;
@@ -76,7 +85,10 @@ function App() {
     setCountry(country+1);
     dispatch(fiveDaysAction());
     dispatch(nowtimeAction());
+    // dispatch(getUsersActions());
   };
+
+  https://www.youtube.com/s/desktop/ff71ea81/cssbin/www-main-desktop-player-skeleton-2x.css
 
 
   type Error = { code: number, message: string };
@@ -86,6 +98,7 @@ function App() {
 
   useEffect(()=> {
 
+    // addUsersAction(body)
     if (dataUser.lat === 0){
       thisPosition({coords: {latitude: 55.7522200, longitude: 37.6155600}});
     } else {
