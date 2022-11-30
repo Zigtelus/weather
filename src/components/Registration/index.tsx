@@ -1,26 +1,42 @@
-import { useEffect } from "react";
-import { useAppDispatch, useAppSelector } from "src/hooks/redux";
-import { getUsersActions } from "src/store/users/actions/users.action";
+
+import './index.scss';
+import { useState } from "react";
+import PopupSignIn from '../Popups/PopupSignIn';
+import PopupSignUp from '../Popups/PopupSignUp';
 
 
 
 export function Registration (): JSX.Element {
 
+  const [autorizationPopup, setaAtorizationPopup] = useState(false);
+  const [registrationPopup, setaRegistrationPopup] = useState(false);
 
-  const users = useAppSelector(state => state.ussersReducer);
-
-  const dispatch = useAppDispatch();
-
-  const getUsers = ()=> {
-
-    dispatch(getUsersActions());
-  }
-
+  const openAutorization = ()=> setaAtorizationPopup(!autorizationPopup)
+  const openRegistration = ()=> setaRegistrationPopup(!registrationPopup)
+  
   return <>
     <button
-      onClick={getUsers}
+      onClick={()=> {
+        openAutorization()
+      }}
       className=""
     >авторизоваться</button>
-    <button className="">зарегистрироваться</button>
+
+
+    <button 
+      onClick={()=> {
+        openRegistration()
+      }}
+      className=""
+    >зарегистрироваться</button>
+
+    {
+      registrationPopup && <PopupSignUp closeOpen={openRegistration}/>
+      
+    }
+
+    {
+      autorizationPopup && <PopupSignIn closeOpen={openAutorization}/>
+    }
   </>
 }

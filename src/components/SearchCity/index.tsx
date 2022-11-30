@@ -481,7 +481,7 @@ function SearchCity(): JSX.Element {
       ref={searchCity} 
     >
       <input 
-        placeholder="введите город"
+        title="ewgreg"
         onChange={listCitysHandler}
         ref={inputEl}
         type="text" 

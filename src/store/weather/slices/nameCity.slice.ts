@@ -3,48 +3,83 @@ import { nameCityAction } from "../actions/nameCity.action"
 
 
 
-export type NameCity = {
-    main: {
-        country: string,
-        lat: number,
-        local_names: {
-            ar: string,
-            ascii: string,
-            az: string,
-            be: string,
-            ca: string,
-            cs: string,
-            de: string,
-            en: string,
-            es: string,
-            et: string,
-            eu: string,
-            fa: string,
-            feature_name: string,
-            fi: string,
-            fr: string,
-            hu: string,
-            hy: string,
-            is: string,
-            ja: string,
-            ka: string,
-            lt: string,
-            nl: string,
-            pl: string,
-            ru: string,
-            sk: string,
-            sr: string,
-            uk: string,
-        },
-        lon: number,
-        name: string,
-        state: string,
-    }
+export type InitialState = {
+  main: {
+    country: string,
+    lat: number,
+    local_names: {
+      ar: string,
+      ascii: string,
+      az: string,
+      be: string,
+      ca: string,
+      cs: string,
+      de: string,
+      en: string,
+      es: string,
+      et: string,
+      eu: string,
+      fa: string,
+      feature_name: string,
+      fi: string,
+      fr: string,
+      hu: string,
+      hy: string,
+      is: string,
+      ja: string,
+      ka: string,
+      lt: string,
+      nl: string,
+      pl: string,
+      ru: string,
+      sk: string,
+      sr: string,
+      uk: string,
+    },
+    lon: number,
+    name: string,
+    state: string,
+  }
 };
 
 
-const initialState: any = {
-  main: {}
+const initialState: InitialState = {
+  main: {
+    country: '',
+    lat: 0,
+    local_names: {
+      ar: '',
+      ascii: '',
+      az: '',
+      be: '',
+      ca: '',
+      cs: '',
+      de: '',
+      en: '',
+      es: '',
+      et: '',
+      eu: '',
+      fa: '',
+      feature_name: '',
+      fi: '',
+      fr: '',
+      hu: '',
+      hy: '',
+      is: '',
+      ja: '',
+      ka: '',
+      lt: '',
+      nl: '',
+      pl: '',
+      ru: '',
+      sk: '',
+      sr: '',
+      uk: '',
+    },
+    lon: 0,
+    name: '',
+    state: '',
+  }
 };
 
 
