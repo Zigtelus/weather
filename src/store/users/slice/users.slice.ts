@@ -7,31 +7,35 @@ import { getUsersActions } from "../actions/users.action";
 
 type InitialState = {
   main: {
-    "name": string,
-    "password": string,
-    "email": string,
-    "age": number,
+    "name": string;
+    "password": string;
+    "email": string;
+    "age": number;
+    "dateRegistration": string;
     "coords": {
-        "latitude": number,
-        "longitude": number,
-        "city": string,
+        "latitude": number;
+        "longitude": number;
+        "city": string;
     }
-  }
+  },
+  loading: boolean;
 }
 
 
 const initialState: InitialState = {     
   main: {
-    "name": "1",
-    "password": "eeeee",
-    "email": "e@qq.dadwedd",
-    "age": 1,
+    "name": "",
+    "password": "",
+    "email": "",
+    "age": 0,
+    "dateRegistration": "",
     "coords": {
-        "latitude": 1,
-        "longitude": 1,
-        "city": "1"
-    }
-  }
+      "latitude": 0,
+      "longitude": 0,
+      "city": ""
+    },
+  },
+  loading: false,
 }
 
 
@@ -50,8 +54,11 @@ export const ussersSlice = createSlice({
       console.log('action.payload')
       console.log(action.payload)
       state.main = {...action.payload};
+      state.loading = false;
     },
-    [getUsersActions.pending.type]: (state, action)=> {},
+    [getUsersActions.pending.type]: (state, action)=> {
+      state.loading = true
+    },
     [getUsersActions.rejected.type]: (state, action) => console.log('error')
   }
 })

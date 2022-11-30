@@ -1,5 +1,5 @@
 import './nowtimeWeather.scss';
-import { useAppSelector } from "../../../hooks/redux";
+import { useAppDispatch, useAppSelector } from "../../../hooks/redux";
 import Temperature from './Temperature';
 import PictureWeather from './PictureWeather';
 import converTemp from 'src/helpers/temperature';
@@ -8,10 +8,28 @@ import Now from './Now';
 import Pop from './Pop';
 import Wind from './Wind';
 import { ScrollBarHOK } from 'src/hocs/scrollBar/index.hoc';
+import { useEffect, useState } from 'react';
+import { dataUser } from 'src/store/weather/createApi';
+import { fiveDaysAction } from 'src/store/weather/actions/fiveDays.action';
+import { nowtimeAction } from 'src/store/weather/actions/nowtime.action';
+import PopupNoGeo from '../../../components/Popups/PopupNoGeo';
+import ItemsDay from './ItemsDay';
+import Authorization from 'components/Popups/PopupSignIn';
 
+
+
+
+type Coords = {
+  coords: {
+    latitude: number,
+    longitude: number
+  }
+}
 
 function NowtimeWeather(): JSX.Element {
 
+
+  let status: boolean = false;
 
   const selector = useAppSelector(state => state);
   const nowtimeWeather = selector.nowtimeWeatherReducer;
@@ -19,46 +37,40 @@ function NowtimeWeather(): JSX.Element {
 
   const listFiveDays = fiveDaysWeather.main.list;
 
-  let arrayTemps: number = 0;
 
-  const ScrollBar = ScrollBarHOK();
-  const itemsDay = <div className="day">
-    {
-      listFiveDays
-      .filter((item, index) => (1 < index && index < 11))
-      .map((item, index) => {
-
-        let tempIt = converTemp(item.main.temp, 'kelvin')
-
-        if (index === 0) {
-          arrayTemps = -(5 * tempIt)
-        }
-
-        if (item.main.temp < 0) {
-          tempIt = -tempIt
-        }
+  const [statusPopup, setStatusPopup] = useState(false)
+  const getUsers = ()=> {
+    setStatusPopup(!statusPopup)
+  }
 
 
-        const chour = hours(item.dt_txt);
-        return <div key={item.dt} className="day__item">
-          <div style={{"display": "flex", "alignItems": "center", "flexDirection": "column"}}>
+  const [country, setCountry] = useState<number>(0);
+  const dispatch = useAppDispatch();
 
-            <div style={{position: 'absolute', top: '90px', display: 'flex', justifyContent: 'center'}}>
-              <div style={{position: 'absolute', bottom: `${arrayTemps - (-(5* tempIt))}px`}}>{converTemp(item.main.temp, 'kelvin')}°</div>
-            </div>
 
-            <div style={{position: 'relative', width: '100px', height: '100px', borderRadius: '10%', overflow: 'hidden', boxShadow: '0px 0px 10px -3px black',}}>
-              <PictureWeather
-                weatherNow={item}
-                city={fiveDaysWeather.main.city}
-              />
-            </div>
-            <div style={{marginTop: '20px'}}>{chour} : 00</div>
-          </div>
-        </div>
-      })
+  type Error = { code: number, message: string };  
+  const thisError = (error: Error)=> {
+    status = false
+  };
+  const thisPosition = (position: Coords )=> {
+    dataUser.lat = position.coords.latitude;
+    dataUser.lon = position.coords.longitude;
+    setCountry(country+1);
+    dispatch(fiveDaysAction());
+    dispatch(nowtimeAction());
+    // dispatch(getUsersActions());
+    status = true
+  };
+
+  useEffect(()=> {
+
+    // addUsersAction(body)
+    if (dataUser.lat === 0){
+      thisPosition({coords: {latitude: 55.7522200, longitude: 37.6155600}});
+    } else {
+      navigator.geolocation.getCurrentPosition(thisPosition, thisError);
     }
-  </div>
+  }, [0]);
 
 
   return (
@@ -72,7 +84,7 @@ function NowtimeWeather(): JSX.Element {
 
 
         <div className='weather_main__picture_weather'>
-          <div style={{width: '170px', height: '170px', boxShadow:'black 0px 0px 10px -3px', borderRadius: '0% 0% 10% 10%', overflow: 'hidden'}}>
+          <div className="weather_main__picture_weather__contain">
             <PictureWeather
               weatherNow={nowtimeWeather.main}
             />
@@ -87,7 +99,7 @@ function NowtimeWeather(): JSX.Element {
         {nowtimeWeather.main.visibility > 1000 ? 'км' : 'метров'}
       </span>
 
-      <ScrollBar componentt={itemsDay} />
+      <ItemsDay fiveDaysWeather={fiveDaysWeather.main}/>
 
       <span className="weather_main__name_station">
         Ближайшая метеостанци распологается в населенном пункте "{nowtimeWeather.main.name}"
@@ -102,6 +114,8 @@ function NowtimeWeather(): JSX.Element {
       <Pop list={listFiveDays}/>
 
       <Wind list={fiveDaysWeather.main.list}/>
+
+      <PopupNoGeo status={status}/>
     </main>
   );
 };

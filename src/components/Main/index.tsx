@@ -16,6 +16,7 @@ function Main(): JSX.Element {
         <Route path={`weather${dateWeather.nowtime}`} element={ <NowtimeWeather /> } />
         <Route path={`weather${dateWeather.fiveDays}`} element={ <TenWeather /> } />
         <Route path={`weather${dateWeather.run}`} element={ <Run /> } />
+        <Route path={`*`} element={ <> 404 </> } />
       </Routes>
     </>
   );

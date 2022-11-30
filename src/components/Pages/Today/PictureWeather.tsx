@@ -1,4 +1,4 @@
-import PictureWeatherHok from "src/hocs/pictureWeather.hoc";
+import PictureWeatherHok from "src/hocs/pictureWeather";
 import s from './PictureWeather.scss'
 
 

@@ -5,11 +5,13 @@ type Body = {
   "password": string,
   "email": string,
   "age": number,
+  "dateRegistration": string,
   "coords": {
       "latitude": number,
       "longitude": number,
       "city": string,
-  }
+  },
+  
 }
 
 const api = createAPI();
