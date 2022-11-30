@@ -13,7 +13,8 @@
 Какие технологии были применины на BACK-END:
 1) NestJs
 2) TypeScript
-3) Загружено на Heroku и залито на ГитХаб ( https://github.com/Zigtelus/weather-back ) - последние изменения на бэке ведутся на приватном репозитории
+3) MongoDB
+4) Загружено на Heroku и залито на ГитХаб ( https://github.com/Zigtelus/weather-back ) - последние изменения на бэке ведутся на приватном репозитории
 
 
 
