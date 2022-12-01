@@ -15,20 +15,22 @@ export function Registration (): JSX.Element {
   const openRegistration = ()=> setaRegistrationPopup(!registrationPopup)
   
   return <>
-    <button
-      onClick={()=> {
-        openAutorization()
-      }}
-      className=""
-    >авторизоваться</button>
+    <div className='registration'>
+      <button
+        onClick={()=> {
+          openAutorization()
+        }}
+        className=""
+      >авторизоваться</button>
 
 
-    <button 
-      onClick={()=> {
-        openRegistration()
-      }}
-      className=""
-    >зарегистрироваться</button>
+      <button 
+        onClick={()=> {
+          openRegistration()
+        }}
+        className=""
+      >зарегистрироваться</button>
+    </div>
 
     {
       registrationPopup && <PopupSignUp closeOpen={openRegistration}/>

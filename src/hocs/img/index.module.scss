@@ -6,6 +6,9 @@
   animation-timing-function: linear;
 }
 
+// #dcd3ff
+// white
+
 @keyframes cloudFirst {
   0% { 
     left: 0%;
@@ -164,12 +167,17 @@
   height: 45%;
   right: -7%;
   enable-background: new 0 0 45.74 45.74;
+
+  fill: #e2cdc2;
+  filter: drop-shadow(1px 0px 3px white);
 }
 
 
 .soon g:nth-of-type(2) {
   animation: 10s infinite star1;
   animation-timing-function: linear;
+
+  fill: #e2cdc2;
 }
 
 @keyframes star1 {
@@ -188,6 +196,8 @@
 
 .soon g:nth-of-type(4) {
   display: none;
+
+  fill: #e2cdc2;
 }
 
 
@@ -195,6 +205,8 @@
   animation: 10s infinite star2;
   animation-timing-function: linear;
   display: none;
+
+  fill: #e2cdc2;
 }
 
 @keyframes star2 {

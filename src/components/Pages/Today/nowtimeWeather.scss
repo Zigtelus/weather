@@ -39,11 +39,12 @@
 
   &__picture_weather {
     display: flex;
-    align-items: flex-end;
+    align-items: center;
     flex-direction: column;
     text-align: right;
+    justify-content: center;
     position: relative;
-    width: auto;
+    width: 37%;
     height: 100%;
 
 
@@ -51,7 +52,7 @@
       width: 170px;
       height: 170px;
       box-shadow: black 0px 0px 10px -3px;
-      border-radius: 0% 0% 10% 10%;
+      border-radius: 10% 10%;
       overflow: hidden;
     }
   }
@@ -171,6 +172,30 @@
 
 
 
+@media only screen and (max-width: 800px)  {
+  .weather_main {
+
+    &__top {
+      padding: 50px 0;
+      border-bottom: 2px solid #0000004f;
+    }
+
+    &__temperature {
+      width: 50%;
+    }
+
+    &__picture_weather {
+      width: 50%;
+    }
+  }
+}
+
+
+
+
+
+
+
 @media only screen and (max-width: 480px)  {
   .weather_main {
 
@@ -178,7 +203,6 @@
       flex-direction: column-reverse;
 
       border-bottom: 2px solid #0000004f;
-      padding-bottom: 30px;
     }
 
     &__picture_weather {

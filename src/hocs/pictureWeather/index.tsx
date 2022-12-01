@@ -49,12 +49,16 @@ const PictureWeatherHok = (style: PictureWeatherHokType)=> {
         }
       >
 
-        {clouds(weatherNow.clouds.all) >= 1 && <ImgWeatherCloud />}
-        {clouds(weatherNow.clouds.all) >= 2 && <ImgWeatherCloud2 />}
+        {addNight && clouds(weatherNow.clouds.all) >= 1 && <ImgWeatherCloud />}
+        {addNight && clouds(weatherNow.clouds.all) >= 2 && <ImgWeatherCloud2 />}
+
+        {addNight || clouds(weatherNow.clouds.all) >= 1 && <ImgWeatherCloud amPm={'am'} />}
+        {addNight || clouds(weatherNow.clouds.all) >= 2 && <ImgWeatherCloud2 amPm={'am'} />}
+
         {wind(weatherNow.wind.speed) != 'слабый ветер' && wind1}
         {clouds(weatherNow.clouds.all) < 3 && (addNight ? <ImgWeatherSun /> : <ImgWeatherSoon />)}
         {weatherNow.rain && <ImgWeatherRain />}
-        <div style={{backgroundColor: `${addNight ? 'white' : '#00000099'}`, width: '100%', height: '100%'}}></div>
+        <div style={{background: `${addNight ? 'linear-gradient(rgb(171 192 255) 30%, rgb(187 0 8) 221%)' : 'linear-gradient(rgb(50, 46, 54) 30%, rgb(12 21 67) 221%)'}`, width: '100%', height: '100%'}}></div>
 
       </div>
       

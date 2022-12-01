@@ -485,7 +485,7 @@ function SearchCity(): JSX.Element {
         onChange={listCitysHandler}
         ref={inputEl}
         type="text" 
-        className={s.input} 
+        className={`${s.input} ${lengthCitiesCheck && s.inputActive}`} 
         style={{
           background: `url(${glassIcon}) no-repeat #ffffff`,
           backgroundPosition: "15px 15px"
