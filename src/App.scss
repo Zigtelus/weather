@@ -1,5 +1,6 @@
 body {
   background: #c5c1dd;
+  position: relative;
 }
 
 #root {
@@ -12,4 +13,8 @@ body {
   width: 100%;
   max-width: 800px;
   margin: 0 auto;
+}
+
+button {
+  cursor: pointer;
 }

@@ -1,6 +1,6 @@
 
 import s from './navtabs.module.scss'
-import { useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import Links from './Links';
 
 function NavTabs(): JSX.Element {
@@ -8,33 +8,38 @@ function NavTabs(): JSX.Element {
 
   const pathname = window.location.pathname;
   const [tab, setTab] = useState<number>(0);
+  const [findPlaceLine, setFindPlaceLine] = useState<string[]>([]);
   const tableTabs = useRef<HTMLDivElement | null>(null);
+
 
 
   const days = {
     "today": 'Сейчас',
-    "fiveDays": '5 дней',
-    "run": 'run'
+    // "fiveDays": '5 дней',
+    // "run": 'run'
   };
 
-  
   const getPlaceLinea = ()=> {
     const tableTabsWidth = tableTabs.current ? tableTabs.current.clientWidth : 0;
     const position: string[] = [];
-
+    
     const lengthObject = Object.keys(days).length;
     const offset = (tableTabsWidth / lengthObject - 75) / 2;
 
     let i = 0;
+    
     while (i < lengthObject) {
       const item = i * (tableTabsWidth / lengthObject) + offset;
       position.push(`${item}px`);
       i++;
-    }
+    };
 
-    return position;
+    setFindPlaceLine(position);
   };
 
+  useEffect(()=> {
+    getPlaceLinea()
+  },[])
 
   return (
     <div
@@ -47,7 +52,7 @@ function NavTabs(): JSX.Element {
     >
       <Links days={days}/>
       
-      {<div className={s.flag} style={{left: `${getPlaceLinea()[tab]}`}} />}
+      {<div className={s.flag} style={{left: `${findPlaceLine[tab]}`}} />}
     </div>
   )
 }
