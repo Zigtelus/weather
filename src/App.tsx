@@ -3,6 +3,7 @@ import  './App.scss';
 import Main from './components/Main';
 import  Navigation  from './components/Navigation';
 import { Registration } from './components/Registration';
+import ImgWeatherHoc from './hocs/img';
 
 
 
@@ -10,7 +11,7 @@ import { Registration } from './components/Registration';
 
 
 function App() {
-
+  
   return (
     <div className='App' >
       <Registration />

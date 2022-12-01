@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/weather/static/css/main.9e16677d.css",
-    "main.js": "/weather/static/js/main.8bf9ebe6.js",
+    "main.css": "/weather/static/css/main.c9c8f73d.css",
+    "main.js": "/weather/static/js/main.e8cbdf31.js",
     "static/media/Inter-Regular.ttf": "/weather/static/media/Inter-Regular.a3e5baa244e35d0f891d.ttf",
     "static/media/glass.svg": "/weather/static/media/glass.debe8cdba0ca6ef1fd53ac9e9fda728e.svg",
     "index.html": "/weather/index.html",
-    "main.9e16677d.css.map": "/weather/static/css/main.9e16677d.css.map",
-    "main.8bf9ebe6.js.map": "/weather/static/js/main.8bf9ebe6.js.map"
+    "main.c9c8f73d.css.map": "/weather/static/css/main.c9c8f73d.css.map",
+    "main.e8cbdf31.js.map": "/weather/static/js/main.e8cbdf31.js.map"
   },
   "entrypoints": [
-    "static/css/main.9e16677d.css",
-    "static/js/main.8bf9ebe6.js"
+    "static/css/main.c9c8f73d.css",
+    "static/js/main.e8cbdf31.js"
   ]
 }
