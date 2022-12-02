@@ -73,7 +73,6 @@ function NowtimeWeather(): JSX.Element {
   }, [0]);
 
 
-  console.log('loading', isLoading);
   return (
     <main className="main weather_main">
 

@@ -18,7 +18,7 @@ type PictureWeatherBaseType = {
 
 
 
-const PictureWeatherHok = (style: PictureWeatherHokType)=> {
+const PictureWeatherHok = (style : PictureWeatherHokType)=> {
     
   const ImgWeatherSun = ImgWeatherHoc({name: 'sun'});
   const ImgWeatherSoon = ImgWeatherHoc({name: 'soon'});
@@ -37,6 +37,7 @@ const PictureWeatherHok = (style: PictureWeatherHokType)=> {
       <div
         style={
           {
+            ...style,
             display: 'flex',
             position: 'relative',
             width: '100%',
