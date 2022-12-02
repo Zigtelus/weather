@@ -1,93 +1,125 @@
 import './nowtimeWeather.scss';
-import { useAppSelector } from "../../../hooks/redux";
+import { useAppDispatch, useAppSelector } from "../../../hooks/redux";
 import Temperature from './Temperature';
 import PictureWeather from './PictureWeather';
-import converTemp from 'src/helpers/temperature';
-import hours from 'src/helpers/hours';
 import Now from './Now';
 import Pop from './Pop';
 import Wind from './Wind';
-import { ScrollBarHOK } from 'src/hoks/scrollBar/index.hok';
+import { useEffect, useState } from 'react';
+import { dataUser } from 'src/store/weather/createApi';
+import { fiveDaysAction } from 'src/store/weather/actions/fiveDays.action';
+import { nowtimeAction } from 'src/store/weather/actions/nowtime.action';
+import PopupNoGeo from '../../../components/Popups/PopupNoGeo';
+import ItemsDay from './ItemsDay';
+import LoadingAnimation from 'src/helpers/LoadingAnimation';
 
+
+
+
+type Coords = {
+  coords: {
+    latitude: number,
+    longitude: number
+  }
+}
 
 function NowtimeWeather(): JSX.Element {
 
+
+  let status: boolean = false;
 
   const selector = useAppSelector(state => state);
   const nowtimeWeather = selector.nowtimeWeatherReducer;
   const fiveDaysWeather = selector.fiveDaysWeatherReducer;
 
   const listFiveDays = fiveDaysWeather.main.list;
+  const [statusPopup, setStatusPopup] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
 
-  const ScrollBar = ScrollBarHOK();
-  const itemsDay = <div className="day">
-    {
-      listFiveDays
-      .filter((item, index) => (1 < index && index < 11))
-      .map((item) => {
-        const chour = hours(item.dt_txt);
-        return <div key={item.dt} className="day__item">
-          <div>
 
-            <div style={{position: 'relative', display: 'flex', justifyContent: 'center'}}>
-              <div style={{position: 'absolute', bottom: `${40 + (9* converTemp(item.main.temp, 'kelvin'))}px`}}>{converTemp(item.main.temp, 'kelvin')}°</div>
-            </div>
+  const getUsers = ()=> {
+    setStatusPopup(!statusPopup)
+  }
 
-            <div style={{position: 'relative', width: '100px', height: '100px', borderRadius: '10%', overflow: 'hidden', boxShadow: '0px 0px 10px -3px black',}}>
-              <PictureWeather
-                weatherNow={item}
-                city={fiveDaysWeather.main.city}
-              />
-            </div>
-            <div style={{marginTop: '20px'}}>{chour} : 00</div>
-          </div>
-        </div>
-      })
-    }
-  </div>
+
+  const [country, setCountry] = useState<number>(0);
+  const dispatch = useAppDispatch();
+
+
+  type Error = { code: number, message: string };  
+  const thisError = (error: Error)=> {
+    thisPosition({coords: {latitude: 55.7522200, longitude: 37.6155600}})
+    status = false;
+    setIsLoading(false)
+  };
+
+
+  const thisPosition = (position: Coords )=> {
+    
+    dataUser.lat = position.coords.latitude;
+    dataUser.lon = position.coords.longitude;
+    setCountry(country+1);
+    dispatch(fiveDaysAction());
+    dispatch(nowtimeAction());
+    // dispatch(getUsersActions());
+    status = true;
+    setIsLoading(false)
+  };
+
+  useEffect(()=> {
+
+    navigator.geolocation.getCurrentPosition(thisPosition, thisError);
+
+  }, [0]);
 
 
   return (
     <main className="main weather_main">
 
-      <div className="weather_main__top">
-        <Temperature
-          nowtimeWeather={nowtimeWeather.main}
-          fiveDaysWeather={fiveDaysWeather.main}
-        />
-
-
-        <div className='weather_main__picture_weather'>
-          <div style={{width: '170px', height: '170px', boxShadow:'black 0px 0px 10px -3px', borderRadius: '0% 0% 10% 10%', overflow: 'hidden'}}>
-            <PictureWeather
-              weatherNow={nowtimeWeather.main}
+    {  isLoading ? <LoadingAnimation userLoading={isLoading} /> :
+        <>
+          <div className="weather_main__top">
+            <Temperature
+              nowtimeWeather={nowtimeWeather.main}
+              fiveDaysWeather={fiveDaysWeather.main}
             />
+
+
+            <div className='weather_main__picture_weather'>
+              <div className="weather_main__picture_weather__contain">
+                <PictureWeather
+                  weatherNow={nowtimeWeather.main}
+                />
+              </div>
+              {/* <span style={{fontSize: '1.2em'}}>{nowtimeWeather.main.weather[0].description}</span> */}
+            </div>
           </div>
-          {/* <span style={{fontSize: '1.2em'}}>{nowtimeWeather.main.weather[0].description}</span> */}
-        </div>
-      </div>
 
 
-      <span style={{display:"none"}}>видимость: 
-        {nowtimeWeather.main.visibility > 1000 && nowtimeWeather.main.visibility / 1000} 
-        {nowtimeWeather.main.visibility > 1000 ? 'км' : 'метров'}
-      </span>
+          <span style={{display:"none"}}>видимость: 
+            {nowtimeWeather.main.visibility > 1000 && nowtimeWeather.main.visibility / 1000} 
+            {nowtimeWeather.main.visibility > 1000 ? 'км' : 'метров'}
+          </span>
 
-      <ScrollBar componentt={itemsDay} />
+          <ItemsDay fiveDaysWeather={fiveDaysWeather.main}/>
 
-      <span className="weather_main__name_station">
-        Ближайшая метеостанци распологается в населенном пункте "{nowtimeWeather.main.name}"
-      </span>
+          <span className="weather_main__name_station">
+            Ближайшая метеостанци распологается в населенном пункте "{nowtimeWeather.main.name}"
+          </span>
 
-      <Now 
-        humidity={nowtimeWeather.main.main.humidity}
-        pressure={nowtimeWeather.main.main.pressure}
-        visibility={nowtimeWeather.main.visibility}
-      />
+          <Now 
+            humidity={nowtimeWeather.main.main.humidity}
+            pressure={nowtimeWeather.main.main.pressure}
+            visibility={nowtimeWeather.main.visibility}
+          />
 
-      <Pop list={listFiveDays}/>
+          <Pop list={listFiveDays}/>
 
-      <Wind list={fiveDaysWeather.main.list}/>
+          <Wind list={fiveDaysWeather.main.list}/>
+
+          <PopupNoGeo status={status}/>
+        </>
+      }
     </main>
   );
 };

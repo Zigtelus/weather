@@ -1,0 +1,56 @@
+
+
+.popup_sign_in {
+
+  &__body {
+    // width: 100%;
+    width: 437px;
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  &__title {
+    width: 100%;
+    text-align: center;
+  }
+
+  &__write_places {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    input {
+      margin: 7px 0;
+      width: 31%;
+      width: 200px;
+    }
+  }
+
+  &__btn {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+  }
+
+}
+
+
+
+@media only screen and (max-width: 945px)  {
+
+  .popup_sign_in {
+
+
+    &__write_places {
+      justify-content: center;
+
+      input {
+        min-width: 247px;
+      }
+    }
+  }
+
+}

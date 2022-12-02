@@ -481,11 +481,11 @@ function SearchCity(): JSX.Element {
       ref={searchCity} 
     >
       <input 
-        placeholder="введите город"
+        title="ewgreg"
         onChange={listCitysHandler}
         ref={inputEl}
         type="text" 
-        className={s.input} 
+        className={`${s.input} ${lengthCitiesCheck && s.inputActive}`} 
         style={{
           background: `url(${glassIcon}) no-repeat #ffffff`,
           backgroundPosition: "15px 15px"
