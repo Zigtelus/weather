@@ -7,8 +7,6 @@ import { City, ListFiveDays } from "src/types/weather/fiveDays";
 import { sunriseSunset } from "src/helpers/sunriseSunset";
 import ImgWeatherHoc from '../img';
 
-
-
 type PictureWeatherHokType = {
   [className: string]: string;
 };
@@ -17,6 +15,7 @@ type PictureWeatherBaseType = {
   weatherNow: Nowtime | ListFiveDays;
   city?: City;
 };
+
 
 
 const PictureWeatherHok = (style: PictureWeatherHokType)=> {
@@ -35,7 +34,17 @@ const PictureWeatherHok = (style: PictureWeatherHokType)=> {
     return <>
 
 
-      <div>
+      <div
+        style={
+          {
+            display: 'flex',
+            position: 'relative',
+            width: '100%',
+            height: '100%',
+            backgroundColor: '#322e36',
+          }
+        }
+      >
 
         { 
           addNight ? 
