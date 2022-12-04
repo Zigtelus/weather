@@ -9,7 +9,6 @@ import { useEffect, useState } from 'react';
 import { dataUser } from 'src/store/weather/createApi';
 import { fiveDaysAction } from 'src/store/weather/actions/fiveDays.action';
 import { nowtimeAction } from 'src/store/weather/actions/nowtime.action';
-import PopupNoGeo from '../../../components/Popups/PopupNoGeo';
 import ItemsDay from './ItemsDay';
 import LoadingAnimation from 'src/helpers/LoadingAnimation';
 import { useParams } from 'react-router-dom';

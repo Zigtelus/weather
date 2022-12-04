@@ -14,7 +14,7 @@ type Props = {
 
 const PusPopuphHoc = ()=> {
 
-  const PusPopuphBase: React.FC <Props> = ({text, isClassName, timer=2, isStyle})=> {
+  const PusPopuphBase: React.FC <Props> = ({text, isClassName, timer = 2, isStyle})=> {
 
 
     return <div 
