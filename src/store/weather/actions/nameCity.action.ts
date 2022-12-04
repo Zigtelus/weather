@@ -1,5 +1,6 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import { createAPI, dataUser, KEY } from "../createApi";
+import { initialStateNC } from "../slices/nameCity.slice";
 
 
 
@@ -24,15 +25,13 @@ export const nameCityAction = createAsyncThunk(
         // moscow
         // const secondPartURL = `/geo/1.0/reverse?lat=55.7522200&lon=37.6155600&appid=94d073c2667e3ab1d500b71c487bdf7c`;
 
-        console.log('nameCityAction');
-        console.log(secondPartURL);
 
         try {
             const res = await api.get<string>(`${secondPartURL}`);
             return res.data;
         } catch (e) {
-            console.log('nameCityAction');
-            console.log('error');
+            console.log('initialStateNC')
+            // return initialStateNC;
         };
         
     }

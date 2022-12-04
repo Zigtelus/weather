@@ -1,0 +1,31 @@
+.qqqqq {
+  animation: 3s slidein infinite;
+}
+
+@keyframes slidein {
+  from { 
+    left: 0%;
+    animation-timing-function: linear;
+  }
+  to   { 
+    left: 100%;
+    animation-timing-function: linear;
+  }
+}
+
+
+.qqqqq1 {
+  animation: 3s slidein1 infinite;
+  // display: none;
+}
+
+@keyframes slidein1 {
+  from { 
+    left: -100%;
+    animation-timing-function: linear;
+  }
+  to   { 
+    left: 0%;
+    animation-timing-function: linear;
+  }
+}
