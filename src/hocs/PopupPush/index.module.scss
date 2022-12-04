@@ -1,0 +1,49 @@
+.push_popup {
+  position: absolute;
+  top: -100px;
+
+  // max-width: 300px;
+  left: calc(50% - 125px);
+  padding: 18px 20px;
+
+  text-align: center;
+  font-size: 14px;
+
+  border-radius: 10px;
+
+  color: #e1cdc2;
+  background-color: #706c75;
+  border: 1px solid #e1cdc2;
+  // background-color: #322e36;
+  // background-color: #a08685;
+  // background-color: #e2cdc2;
+  // background-color: #babec5;
+  // background-color: #8cacc5;
+  // background-color: #eeebe7;
+
+  z-index: 99;
+  animation: 2s identifier;
+}
+
+@keyframes identifier {
+  0% {
+    top: -100px;
+  }
+  70% {
+    top: 150px;
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    top: 200px;
+  }
+}
+
+
+// #322e36
+// #a08685
+// #e2cdc2
+// #babec5
+// #8cacc5
+
+// #eeebe7

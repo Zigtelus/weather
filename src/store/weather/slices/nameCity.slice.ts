@@ -39,11 +39,12 @@ export type InitialState = {
     lon: number,
     name: string,
     state: string,
-  }
+  };
+  loading?: boolean;
 };
 
 
-const initialState: InitialState = {
+export const initialStateNC: InitialState = {
   main: {
     country: '',
     lat: 0,
@@ -79,13 +80,14 @@ const initialState: InitialState = {
     lon: 0,
     name: '',
     state: '',
-  }
+  },
+  loading: false,
 };
 
 
 export const nameCitySlice = createSlice({
   name: 'nameCity',
-  initialState: initialState,
+  initialState: initialStateNC,
   reducers: {
       numberPlus(state, action){
       }
@@ -93,9 +95,13 @@ export const nameCitySlice = createSlice({
   extraReducers: {
     [nameCityAction.fulfilled.type]: (state, action) => {
       state.main = {...action.payload};
+      state.loading = false;
     },
-    [nameCityAction.pending.type]: (state, action) => {},
-    [nameCityAction.rejected.type]: (state, action) => console.log('error')
+    [nameCityAction.pending.type]: (state, action) => {
+      state.loading = true;
+    },
+    [nameCityAction.rejected.type]: (state, action) => {
+    }
   }
 })
 

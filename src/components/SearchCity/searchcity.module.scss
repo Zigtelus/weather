@@ -42,27 +42,71 @@
   }
 
   .listCitys {
+    display: flex;
+    flex-direction: column;
     position: absolute;
-    top: 70px;
+    top: 60px;
     background-color: #555158cc;
     color: #b2b1b3;
-    width: 161.3%;
+    width: 100%;
     z-index: 3;
     margin: 0;
-    padding-top: 23px;
-    padding-bottom: 15px;
+
+    transition: 0.2s;
+    height: 0px;
+    // padding-top: 0px;
+    // padding-bottom: 0px;
+    // padding-top: 23px;
+    // padding-bottom: 15px;
+    // animation: 3s slideisssn;
+    overflow: hidden;
+    padding-left: 0;
 
     li {
-      margin: 5px 0px;
-      padding: 6px 0;
-    }
+      list-style: none;
 
-    li:hover {
-      background-color: #608bae47;
+      a {
+        width: 100%;
+        display: block;
+        color: #b2b1b3;
+        text-decoration: none;
+        margin: 3px 0px;
+        padding: 6px 0 6px 25px;
+
+        &:hover {
+          background-color: #608bae47;
+        }
+  
+        &:focus {
+          box-shadow: 0px 0px 0px 2px #201ac0;
+        }
+        
+      }
     }
+  }
+  // @keyframes slideisssn {
+  //   0% { 
+  //     height: 0px;
+  //     padding-top: 0px;
+  //     padding-bottom: 0px;
+  //   }
+  //   100% { 
+  //     height: initial;
+  //     padding-top: 23px;
+  //     padding-bottom: 15px;
+  //   }
+  // }
+
+  .listCitysActive {
+    top: 70px;
+    height: 400px;
+    width: 161.3%;
+    padding-top: 23px;
+    padding-bottom: 15px;
   }
   
 }
+
 
 
 

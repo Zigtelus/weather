@@ -5,125 +5,130 @@ import { fiveDaysAction } from "../actions/fiveDays.action";
 
 
 type InitialState = {
-  main: FiveDays
+  main: FiveDays;
+  loading?: boolean;
 }
 
 
-const initialState: InitialState = {     
+export const initialStateFD: InitialState = {     
   "main": {
-    "cod": "200",
+    "cod": "",
     "message": 0,
-    "cnt": 40,
+    "cnt": 0,
     "list": [
       {
-        "dt": 1647345600,
+        "dt": 0,
         "main": {
-          "temp": 286.88,
-          "feels_like": 285.93,
-          "temp_min": 286.74,
-          "temp_max": 286.88,
-          "pressure": 1021,
-          "sea_level": 1021,
-          "grnd_level": 1018,
-          "humidity": 62,
-          "temp_kf": 0.14
+          "temp": 0,
+          "feels_like": 0,
+          "temp_min": 0,
+          "temp_max": 0,
+          "pressure": 0,
+          "sea_level": 0,
+          "grnd_level": 0,
+          "humidity": 0,
+          "temp_kf": 0,
         },
         "weather": [
           {
-            "id": 804,
-            "main": "Clouds",
-            "description": "overcast clouds",
-            "icon": "04d"
+            "id": 0,
+            "main": "",
+            "description": "",
+            "icon": "",
           }
         ],
         "clouds": {
-          "all": 85
+          "all": 0,
         },
         "wind": {
-          "speed": 3.25,
-          "deg": 134,
-          "gust": 4.45
+          "speed": 0,
+          "deg": 0,
+          "gust": 0,
         },
-        "visibility": 10000,
+        "visibility": 0,
         "pop": 0,
         "sys": {
-          "pod": "d"
+          "pod": "",
         },
-        "dt_txt": "2022-03-15 12:00:00"
+        "dt_txt": "",
       },
       {
-        "dt": 1647356400,
+        "dt": 0,
         "main": {
-          "temp": 286.71,
-          "feels_like": 285.77,
-          "temp_min": 286.38,
-          "temp_max": 286.71,
-          "pressure": 1021,
-          "sea_level": 1021,
-          "grnd_level": 1017,
-          "humidity": 63,
-          "temp_kf": 0.33
+          "temp": 0,
+          "feels_like": 0,
+          "temp_min": 0,
+          "temp_max": 0,
+          "pressure": 0,
+          "sea_level": 0,
+          "grnd_level": 0,
+          "humidity": 0,
+          "temp_kf": 0,
         },
         "weather": [
           {
-            "id": 804,
-            "main": "Clouds",
-            "description": "overcast clouds",
-            "icon": "04d"
+            "id": 0,
+            "main": "",
+            "description": "",
+            "icon": "",
           }
         ],
         "clouds": {
-          "all": 90
+          "all": 0,
         },
         "wind": {
-          "speed": 3.34,
-          "deg": 172,
-          "gust": 4.03
+          "speed": 0,
+          "deg": 0,
+          "gust": 0,
         },
-        "visibility": 10000,
+        "visibility": 0,
         "pop": 0,
         "sys": {
           "pod": "d"
         },
-        "dt_txt": "2022-03-15 15:00:00"
+        "dt_txt": "",
       },
     ],
     "city": {
-      "id": 2643743,
-      "name": "London",
+      "id": 0,
+      "name": "",
       "coord": {
-        "lat": 51.5073,
-        "lon": -0.1277
+        "lat": 0,
+        "lon": 0,
       },
-      "country": "GB",
-      "population": 1000000,
+      "country": "ru",
+      "population": 0,
       "timezone": 0,
-      "sunrise": 1647324903,
-      "sunset": 1647367441
+      "sunrise": 0,
+      "sunset": 0,
     }
-  } 
+  },
+  "loading": false,
 }
 
 
 export const fiveDaySlice = createSlice({
   name: 'fiveDays',
-  initialState: initialState,
+  initialState: initialStateFD,
   reducers: {
-    numberPlus(state, action) {
-      /*
-      без редюсера синхронного не срабатывает ассинхронный редюсер
-      */
+    getLoading(state, action) {
+      console.log('getLoading false')
+      state.loading = action.payload
     }
   },
   extraReducers: {
     [fiveDaysAction.fulfilled.type]: (state, action) => {
-        state.main = {...action.payload};
+      state.main = {...action.payload};
+      state.loading = false;
     },
-    [fiveDaysAction.pending.type]: (state, action)=> {},
-    [fiveDaysAction.rejected.type]: (state, action) => console.log('error')
+    [fiveDaysAction.pending.type]: (state, action)=> {
+      state.loading = true;
+    },
+    [fiveDaysAction.rejected.type]: (state, action) => {
+    }
   }
 })
 
 
-
+export const {getLoading} = fiveDaySlice.actions
 export default fiveDaySlice.reducer;

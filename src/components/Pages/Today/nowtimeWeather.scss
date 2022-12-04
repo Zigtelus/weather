@@ -5,6 +5,29 @@
   flex-direction: column;
   align-items: center;
 
+
+
+  .push_message__no_gps {
+    background-color: black;
+    animation: 5s push_message__no_gps;
+  }
+
+  @keyframes push_message__no_gps {
+    0% {
+      top: -100px;
+    }
+    40% {
+      top: 150px;
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+      top: 200px;
+    }
+  }
+
+
+
   &__top {
     display: flex;
     justify-content: space-between;
@@ -79,9 +102,6 @@
 .day {
   width: 100%;
   display: flex;
-  // justify-content: space-between;
-  // overflow: hidden;
-  // overflow-x: scroll;
   position: relative;
   top: 30px;
   padding-top: 180px;
@@ -96,7 +116,6 @@
 
 
     span {
-      // position: absolute;
       width: 100%;
       height: 100%;
     }

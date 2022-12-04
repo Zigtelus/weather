@@ -1,5 +1,6 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import { createAPI, dataUser, KEY } from "../createApi";
+import { initialStateNC } from "../slices/nameCity.slice";
 
 
 
@@ -29,8 +30,8 @@ export const nameCityAction = createAsyncThunk(
             const res = await api.get<string>(`${secondPartURL}`);
             return res.data;
         } catch (e) {
-            console.log('nameCityAction');
-            console.log('error');
+            console.log('initialStateNC')
+            // return initialStateNC;
         };
         
     }

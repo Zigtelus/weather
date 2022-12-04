@@ -27,7 +27,6 @@ export const validationUsserSlice = createSlice({
   initialState: initialState,
   reducers: {
     formValidation(state, action) {
-      console.log({...action.payload})
       state.main = {...action.payload}
     }
   },

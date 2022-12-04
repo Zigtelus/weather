@@ -1,4 +1,4 @@
-import { MouseEvent, MutableRefObject, useRef, useState } from "react";
+import { MouseEvent, MutableRefObject, useEffect, useRef, useState } from "react";
 import { useAppDispatch, useAppSelector } from "../../hooks/redux";
 import s from './searchcity.module.scss'
 import glassIcon from './assets/glass.svg'
@@ -7,6 +7,11 @@ import useTimeout from "src/helpers/useTimeout";
 import { nowtimeAction } from "src/store/weather/actions/nowtime.action";
 import { fiveDaysAction } from "src/store/weather/actions/fiveDays.action";
 import { nameCityAction } from "src/store/weather/actions/nameCity.action";
+import LoadingAnimation from "src/helpers/LoadingAnimation";
+import PopupHoc from "src/hocs/popup";
+import PusPopuphHoc from "src/hocs/PopupPush";
+import transliteral from "src/helpers/transliteration";
+import { NavLink, useParams, useSearchParams } from "react-router-dom";
 
 
 type DataUser = {
@@ -20,9 +25,12 @@ function SearchCity(): JSX.Element {
 
 
   const dispatch = useAppDispatch();
-  const selector = useAppSelector(item => item.nowtimeWeatherReducer);
+  const selector = useAppSelector(item => item);
+  const nowtimeWeatherReducer = selector.nowtimeWeatherReducer
+  const loading = selector.fiveDaysWeatherReducer.loading
+  const PushMeassage = PusPopuphHoc()
 
-  const nameCountry = selector.main.sys.country && selector.main.sys.country.toLowerCase();
+  const nameCountry = nowtimeWeatherReducer.main.sys.country && nowtimeWeatherReducer.main.sys.country.toLowerCase();
 
   const [country, setCountry] = useState<number>(0);
   const [isDataUser, setDataUser] = useState<DataUser>(dataUser);
@@ -456,8 +464,11 @@ function SearchCity(): JSX.Element {
     const inputElValue = inputEl.current.value;
     const upperCase = inputElValue.charAt(0).toUpperCase() + inputElValue.slice(1);
     const lengthWord = upperCase.length;
+    
+    const qqq = nameCountry ||'ru'
 
-    return cities[nameCountry as keyof typeof cities].filter((item)=> {
+    // return cities[nameCountry as keyof typeof cities].filter((item)=> { 
+    return cities[qqq as keyof typeof cities].filter((item)=> {
       item = item.charAt(0).toUpperCase() + item.slice(1);
       let newArray: string[] | string = [...item.split('')];
       newArray.length = lengthWord;
@@ -472,16 +483,24 @@ function SearchCity(): JSX.Element {
   const listCitysHandler = () => timeout(refreshPage);
 
 
-  const lengthCitiesCheck = inputEl.current && inputEl.current.value.length > 0 && searchCitys().length > 0
+  const lengthCitiesCheck = (inputEl.current && inputEl.current.value.length > 0 && searchCitys().length > 0)
+
+  // const qwqw = window.location.search;
+  // let wefwefe = new URLSearchParams(qwqw);
+  // console.log(wefwefe.get('cities'))
+  // const {yourId} = useParams();
 
 
-  return (
+  const qqqqqq = (inputEl.current && inputEl.current.value && !!searchCitys().length ? searchCitys().length : 1)
+  return <>
     <div 
       className={s.searchCity}
       ref={searchCity} 
     >
       <input 
-        title="ewgreg"
+        disabled={loading}
+        title={"введите название города"}
+        placeholder={`${loading ? 'идет загрузка' : 'введите название города'}`}
         onChange={listCitysHandler}
         ref={inputEl}
         type="text" 
@@ -493,21 +512,37 @@ function SearchCity(): JSX.Element {
       />
 
 
-      <ul 
-        className={s.listCitys}
+     {<ul 
+        className={`
+          ${s.listCitys}
+          ${lengthCitiesCheck && s.listCitysActive}
+        `}
         onClick={(e)=> listCitiesHandler(e)}
-        style={{opacity: lengthCitiesCheck ? '1' : '0'}}
+        style={{opacity: lengthCitiesCheck ? '1' : '0', height: `${38+(qqqqqq * 37.5)}px`}}
       >
         {
           inputEl.current && inputEl.current.value && 
           searchCitys().map((item, index) => <li 
-            style={{cursor: "pointer"}}
             key={index}
-          > {item.charAt(0).toUpperCase() + item.slice(1)} </li>)
+
+          >
+            <NavLink aria-label={'город ' + item} to={`weather/${transliteral(item).toLowerCase()}`}> {item.charAt(0).toUpperCase() + item.slice(1)} </NavLink>
+          </li>)
         }
-      </ul>
+      </ul>}
     </div>
-  )
+
+      
+    { 
+      !loading &&
+      inputEl.current && 
+      !searchCitys().length &&
+      <PushMeassage 
+        text={`город начинающийся с ${inputEl.current.value.toUpperCase()} не найден`} 
+      />
+    }
+    
+  </>
 }
 
 

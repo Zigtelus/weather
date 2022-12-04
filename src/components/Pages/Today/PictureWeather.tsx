@@ -1,8 +1,7 @@
 import PictureWeatherHok from "src/hocs/pictureWeather";
-import s from './PictureWeather.scss'
+import s from "./PictureWeather.scss";
 
 
-// const PictureWeather = PictureWeatherHok(s, 'weather_main__picture_weather')
 const PictureWeather = PictureWeatherHok(s)
 
 
