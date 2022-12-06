@@ -123,7 +123,6 @@ export const fiveDaySlice = createSlice({
 
       state.main = {...action.payload};
 
-      // console.log('fiveDaysAction.fulfilled.type ',  action.payload.city)
       if (!!action.payload.city) {
         for (let i = 0; i < action.payload.list.length-1; i++) {
 
@@ -132,19 +131,10 @@ export const fiveDaySlice = createSlice({
           }
           
           const isTimeZone = timeZone(five.main, i);
-          // console.log( '____1___' )
-          // console.log( '____1___' )
-          // console.log(state.main.list[i].dt)
-          // console.log(state.main.list[i].dt_txt)
-          // console.log(isTimeZone)
-          // console.log( '____2___' )
-          // console.log( '____2___' )
           state.main.list[i].dt_txt = isTimeZone
         }
       }
 
-      // console.log(sunriseSunset(state.main.city.sunrise, state.main.city.sunset))
-      // console.log(state.main.list)
       state.loading = false;
     },
     [fiveDaysAction.pending.type]: (state, action)=> {

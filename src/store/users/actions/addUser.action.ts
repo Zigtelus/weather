@@ -26,7 +26,6 @@ export const addUsersAction = async (body: Body)=> {
     
     return res.data;
   } catch (error) {
-    console.log('addUsersAction');
     console.log('error ', error);
   };
     

@@ -1034,10 +1034,6 @@ function SearchCity(): JSX.Element {
 
   const lengthCitiesCheck = (inputEl.current && inputEl.current.value.length > 0 && searchCitys().length > 0)
 
-  // const qwqw = window.location.search;
-  // let wefwefe = new URLSearchParams(qwqw);
-  // console.log(wefwefe.get('cities'))
-  // const {yourId} = useParams();
 
 
   const qqqqqq = (inputEl.current && inputEl.current.value && !!searchCitys().length ? searchCitys().length : 1)

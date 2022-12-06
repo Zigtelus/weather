@@ -82,7 +82,6 @@ export const nowtimeAction = createAsyncThunk(
             // return qqq
             return tttt
             // return initialStateNT.main
-            console.log('nowtimeAction' + secondPartURL)
             console.log('error ', e);
         }
         

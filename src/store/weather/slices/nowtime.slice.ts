@@ -73,11 +73,9 @@ export const nowtimeSlice = createSlice({
   extraReducers: {
     [nowtimeAction.fulfilled.type]: (state, action) => {
       state.main = {...action.payload};
-      console.log('2')
       state.loading = false;
     },
     [nowtimeAction.pending.type]: (state, action) => {
-      console.log('1')
       state.loading = true;
     },
     [nowtimeAction.rejected.type]: (state, action) => {

@@ -51,8 +51,6 @@ export const ussersSlice = createSlice({
   },
   extraReducers: {
     [getUsersActions.fulfilled.type]: (state, action) => {
-      console.log('action.payload')
-      console.log(action.payload)
       state.main = {...action.payload};
       state.loading = false;
     },

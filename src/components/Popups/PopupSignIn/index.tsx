@@ -46,13 +46,11 @@ export default function PopupSignIn({closeOpen}: {closeOpen: ()=> void}): JSX.El
   //   //     setStatusUser(!statusUser)
   //   //     setIsLoading(false)
   //   //     setTextAuthorization('вы авторизовались')
-  //   //     console.log(value.data)
   //   //     dispatch(getUsersAction(value.data))
   //   //   },
   //   //   error => {
   //   //     setIsLoading(false)
   //   //     setTextAuthorization('данный пользователь не найден')
-  //   //     console.log(textAuthorization, 'ef')
   //   //   }
     
   //   // );

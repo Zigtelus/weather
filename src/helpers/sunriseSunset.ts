@@ -27,9 +27,7 @@ function sunriseSunset(sunriseUtc: number, sunsetUtc: number, timezone: number, 
     nowtime: getTimeUTC(nowTime + timezone),
   }
   
-  console.log(timesUTC)
-  console.log('nowTime ', timesUTC.nowtime)
-  if (timesUTC.sunset > timesUTC.nowtime && timesUTC.nowtime > timesUTC.sunrise) {
+  if (timesUTC.sunset >= timesUTC.nowtime && timesUTC.nowtime >= timesUTC.sunrise) {
     return true
   } else {
     return false
