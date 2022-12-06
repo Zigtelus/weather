@@ -114,7 +114,6 @@ export const fiveDaySlice = createSlice({
   initialState: initialStateFD,
   reducers: {
     getLoading(state, action) {
-      console.log('getLoading false')
       state.loading = action.payload
     }
   },
