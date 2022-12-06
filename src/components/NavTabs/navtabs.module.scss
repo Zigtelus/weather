@@ -3,7 +3,11 @@
   margin-top: 20px;
 
   display: flex;
-  justify-content: space-between;  
+  // justify-content: space-between;  
+  justify-content: space-around;  
+  width: 100%;
+  position: relative;
+  padding-bottom: 15px;
 
   .tabs {
     display: flex;
@@ -21,7 +25,7 @@
     }
 
     &:focus {
-      color: #33007a;
+      // color: #33007a;
     }
   }
 
@@ -39,4 +43,12 @@
     transition: all cubic-bezier(0.075, 0.82, 0.165, 1) .2s;
   }  
   
+}
+
+
+
+@media only screen and (max-width: 800px)  {
+  .navTabs {
+    order: 3;
+  }
 }

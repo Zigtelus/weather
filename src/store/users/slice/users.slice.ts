@@ -6,18 +6,36 @@ import { getUsersActions } from "../actions/users.action";
 
 
 type InitialState = {
-  main: Users
+  main: {
+    "name": string;
+    "password": string;
+    "email": string;
+    "age": number;
+    "dateRegistration": string;
+    "coords": {
+        "latitude": number;
+        "longitude": number;
+        "city": string;
+    }
+  },
+  loading: boolean;
 }
 
 
 const initialState: InitialState = {     
   main: {
-      "_id": "631dd4e5f3cfab6bf50e6b29",
-    "title": "qwsddswqw",
-    "price": 322,
-    "id": "22122",
-    "__v": 0
-  }
+    "name": "",
+    "password": "",
+    "email": "",
+    "age": 0,
+    "dateRegistration": "",
+    "coords": {
+      "latitude": 0,
+      "longitude": 0,
+      "city": ""
+    },
+  },
+  loading: false,
 }
 
 
@@ -33,9 +51,12 @@ export const ussersSlice = createSlice({
   },
   extraReducers: {
     [getUsersActions.fulfilled.type]: (state, action) => {
-        state.main = {...action.payload};
+      state.main = {...action.payload};
+      state.loading = false;
     },
-    [getUsersActions.pending.type]: (state, action)=> {},
+    [getUsersActions.pending.type]: (state, action)=> {
+      state.loading = true
+    },
     [getUsersActions.rejected.type]: (state, action) => console.log('error')
   }
 })

@@ -1,0 +1,28 @@
+
+
+
+.wind__items {
+  display: flex;
+}
+
+.wind__item {
+  display: flex;
+  flex-direction: column;
+  min-width: 200px;
+}
+
+
+
+
+@media only screen and (max-width: 800px)  {
+
+  .wind__title {
+    margin-left: 15px;
+    margin-right: 15px;
+  }
+
+  .wind__item {
+    margin: 0 15px;
+  }
+
+}

@@ -1,10 +1,1511 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
+import { useAppSelector } from "src/hooks/redux";
+import { FiveDays } from "src/types/weather/fiveDays";
 import { createAPI, dataUser, KEY } from "../createApi";
+import { initialStateFD } from "../slices/fiveDays.slice";
 
 
 
 const api = createAPI();
 
+
+
+const tttt = {
+  "cod": "",
+  "message": 0,
+  "cnt": 0,
+  "list": [
+    {
+        "dt": 0,
+        "main": {
+            "temp": 0,
+            "feels_like": 0,
+            "temp_min": 0,
+            "temp_max": 0,
+            "pressure": 0,
+            "sea_level": 0,
+            "grnd_level": 0,
+            "humidity": 0,
+            "temp_kf": 0,
+        },
+        "weather": [
+            {
+                "id": 0,
+                "main": "",
+                "description": "",
+                "icon": ""
+            }
+        ],
+        "clouds": {
+            "all": 0,
+        },
+        "wind": {
+            "speed": 0,
+            "deg": 0,
+            "gust": 0,
+        },
+        "visibility": 0,
+        "pop": 0,
+        "sys": {
+            "pod": ""
+        },
+        "dt_txt": ""
+    },
+    {
+        "dt": 0,
+        "main": {
+          "temp": 0,
+          "feels_like": 0,
+          "temp_min": 0,
+          "temp_max": 0,
+          "pressure": 0,
+          "sea_level": 0,
+          "grnd_level": 0,
+          "humidity": 0,
+          "temp_kf": 0,
+        },
+        "weather": [
+          {
+            "id": 0,
+            "main": "",
+            "description": "",
+            "icon": ""
+          }
+        ],
+        "clouds": {
+          "all": 0,
+        },
+        "wind": {
+          "speed": 0,
+          "deg": 0,
+          "gust": 0,
+        },
+        "visibility": 0,
+        "pop": 0,
+        "sys": {
+          "pod": ""
+        },
+        "dt_txt": ""
+    },
+    {
+        "dt": 0,
+        "main": {
+          "temp": 0,
+          "feels_like": 0,
+          "temp_min": 0,
+          "temp_max": 0,
+          "pressure": 0,
+          "sea_level": 0,
+          "grnd_level": 0,
+          "humidity": 0,
+          "temp_kf": 0,
+        },
+        "weather": [
+          {
+            "id": 0,
+            "main": "",
+            "description": "",
+            "icon": ""
+          }
+        ],
+        "clouds": {
+          "all": 0,
+        },
+        "wind": {
+          "speed": 0,
+          "deg": 0,
+          "gust": 0,
+        },
+        "visibility": 0,
+        "pop": 0,
+        "sys": {
+          "pod": ""
+        },
+        "dt_txt": ""
+    },
+    {
+        "dt": 0,
+        "main": {
+          "temp": 0,
+          "feels_like": 0,
+          "temp_min": 0,
+          "temp_max": 0,
+          "pressure": 0,
+          "sea_level": 0,
+          "grnd_level": 0,
+          "humidity": 0,
+          "temp_kf": 0,
+        },
+        "weather": [
+          {
+            "id": 0,
+            "main": "",
+            "description": "",
+            "icon": ""
+          }
+        ],
+        "clouds": {
+          "all": 0,
+        },
+        "wind": {
+          "speed": 0,
+          "deg": 0,
+          "gust": 0,
+        },
+        "visibility": 0,
+        "pop": 0,
+        "sys": {
+          "pod": ""
+        },
+        "dt_txt": ""
+    },
+    {
+        "dt": 0,
+        "main": {
+          "temp": 0,
+          "feels_like": 0,
+          "temp_min": 0,
+          "temp_max": 0,
+          "pressure": 0,
+          "sea_level": 0,
+          "grnd_level": 0,
+          "humidity": 0,
+          "temp_kf": 0,
+        },
+        "weather": [
+          {
+            "id": 0,
+            "main": "",
+            "description": "",
+            "icon": ""
+          }
+        ],
+        "clouds": {
+          "all": 0,
+        },
+        "wind": {
+          "speed": 0,
+          "deg": 0,
+          "gust": 0,
+        },
+        "visibility": 0,
+        "pop": 0,
+        "sys": {
+          "pod": ""
+        },
+        "dt_txt": ""
+    },
+    {
+        "dt": 0,
+        "main": {
+          "temp": 0,
+          "feels_like": 0,
+          "temp_min": 0,
+          "temp_max": 0,
+          "pressure": 0,
+          "sea_level": 0,
+          "grnd_level": 0,
+          "humidity": 0,
+          "temp_kf": 0,
+        },
+        "weather": [
+          {
+            "id": 0,
+            "main": "",
+            "description": "",
+            "icon": ""
+          }
+        ],
+        "clouds": {
+            "all": 0,
+        },
+        "wind": {
+            "speed": 0,
+            "deg": 0,
+            "gust": 0,
+        },
+        "visibility": 0,
+        "pop": 0,
+        "sys": {
+            "pod": ""
+        },
+        "dt_txt": ""
+    },
+    {
+        "dt": 0,
+        "main": {
+            "temp": 0,
+            "feels_like": 0,
+            "temp_min": 0,
+            "temp_max": 0,
+            "pressure": 0,
+            "sea_level": 0,
+            "grnd_level": 0,
+            "humidity": 0,
+            "temp_kf": 0,
+        },
+        "weather": [
+            {
+                "id": 0,
+                "main": "",
+                "description": "",
+                "icon": ""
+            }
+        ],
+        "clouds": {
+            "all": 0,
+        },
+        "wind": {
+            "speed": 0,
+            "deg": 0,
+            "gust": 0,
+        },
+        "visibility": 0,
+        "pop": 0,
+        "sys": {
+            "pod": ""
+        },
+        "dt_txt": ""
+    },
+    {
+        "dt": 0,
+        "main": {
+            "temp": 0,
+            "feels_like": 0,
+            "temp_min": 0,
+            "temp_max": 0,
+            "pressure": 0,
+            "sea_level": 0,
+            "grnd_level": 0,
+            "humidity": 0,
+            "temp_kf": 0,
+        },
+        "weather": [
+            {
+                "id": 0,
+                "main": "",
+                "description": "",
+                "icon": ""
+            }
+        ],
+        "clouds": {
+            "all": 0,
+        },
+        "wind": {
+            "speed": 0,
+            "deg": 0,
+            "gust": 0,
+        },
+        "visibility": 0,
+        "pop": 0,
+        "sys": {
+            "pod": ""
+        },
+        "dt_txt": ""
+    },
+    {
+        "dt": 0,
+        "main": {
+            "temp": 0,
+            "feels_like": 0,
+            "temp_min": 0,
+            "temp_max": 0,
+            "pressure": 0,
+            "sea_level": 0,
+            "grnd_level": 0,
+            "humidity": 0,
+            "temp_kf": 0,
+        },
+        "weather": [
+            {
+                "id": 0,
+                "main": "",
+                "description": "",
+                "icon": ""
+            }
+        ],
+        "clouds": {
+            "all": 0,
+        },
+        "wind": {
+            "speed": 0,
+            "deg": 0,
+            "gust": 0,
+        },
+        "visibility": 0,
+        "pop": 0,
+        "sys": {
+            "pod": ""
+        },
+        "dt_txt": ""
+    },
+    {
+        "dt": 0,
+        "main": {
+            "temp": 0,
+            "feels_like": 0,
+            "temp_min": 0,
+            "temp_max": 0,
+            "pressure": 0,
+            "sea_level": 0,
+            "grnd_level": 0,
+            "humidity": 0,
+            "temp_kf": 0,
+        },
+        "weather": [
+            {
+                "id": 0,
+                "main": "",
+                "description": "",
+                "icon": ""
+            }
+        ],
+        "clouds": {
+            "all": 0,
+        },
+        "wind": {
+            "speed": 0,
+            "deg": 0,
+            "gust": 0,
+        },
+        "visibility": 0,
+        "pop": 0,
+        "sys": {
+            "pod": ""
+        },
+        "dt_txt": ""
+    },
+    {
+        "dt": 0,
+        "main": {
+            "temp": 0,
+            "feels_like": 0,
+            "temp_min": 0,
+            "temp_max": 0,
+            "pressure": 0,
+            "sea_level": 0,
+            "grnd_level": 0,
+            "humidity": 0,
+            "temp_kf": 0,
+        },
+        "weather": [
+            {
+                "id": 0,
+                "main": "",
+                "description": "",
+                "icon": ""
+            }
+        ],
+        "clouds": {
+            "all": 0,
+        },
+        "wind": {
+            "speed": 0,
+            "deg": 0,
+            "gust": 0,
+        },
+        "visibility": 0,
+        "pop": 0,
+        "sys": {
+            "pod": ""
+        },
+        "dt_txt": ""
+    },
+    {
+        "dt": 0,
+        "main": {
+            "temp": 0,
+            "feels_like": 0,
+            "temp_min": 0,
+            "temp_max": 0,
+            "pressure": 0,
+            "sea_level": 0,
+            "grnd_level": 0,
+            "humidity": 0,
+            "temp_kf": 0,
+        },
+        "weather": [
+            {
+                "id": 0,
+                "main": "",
+                "description": "",
+                "icon": ""
+            }
+        ],
+        "clouds": {
+            "all": 0,
+        },
+        "wind": {
+            "speed": 0,
+            "deg": 0,
+            "gust": 0,
+        },
+        "visibility": 0,
+        "pop": 0,
+        "sys": {
+            "pod": ""
+        },
+        "dt_txt": ""
+    },
+    {
+        "dt": 0,
+        "main": {
+            "temp": 0,
+            "feels_like": 0,
+            "temp_min": 0,
+            "temp_max": 0,
+            "pressure": 0,
+            "sea_level": 0,
+            "grnd_level": 0,
+            "humidity": 0,
+            "temp_kf": 0,
+        },
+        "weather": [
+            {
+                "id": 0,
+                "main": "",
+                "description": "",
+                "icon": ""
+            }
+        ],
+        "clouds": {
+            "all": 0,
+        },
+        "wind": {
+            "speed": 0,
+            "deg": 0,
+            "gust": 0,
+        },
+        "visibility": 0,
+        "pop": 0,
+        "sys": {
+            "pod": ""
+        },
+        "dt_txt": ""
+    },
+    {
+        "dt": 0,
+        "main": {
+            "temp": 0,
+            "feels_like": 0,
+            "temp_min": 0,
+            "temp_max": 0,
+            "pressure": 0,
+            "sea_level": 0,
+            "grnd_level": 0,
+            "humidity": 0,
+            "temp_kf": 0,
+        },
+        "weather": [
+            {
+                "id": 0,
+                "main": "",
+                "description": "",
+                "icon": ""
+            }
+        ],
+        "clouds": {
+            "all": 0,
+        },
+        "wind": {
+            "speed": 0,
+            "deg": 0,
+            "gust": 0,
+        },
+        "visibility": 0,
+        "pop": 0,
+        "sys": {
+            "pod": ""
+        },
+        "dt_txt": ""
+    },
+    {
+        "dt": 0,
+        "main": {
+            "temp": 0,
+            "feels_like": 0,
+            "temp_min": 0,
+            "temp_max": 0,
+            "pressure": 0,
+            "sea_level": 0,
+            "grnd_level": 0,
+            "humidity": 0,
+            "temp_kf": 0,
+        },
+        "weather": [
+            {
+                "id": 0,
+                "main": "",
+                "description": "",
+                "icon": ""
+            }
+        ],
+        "clouds": {
+            "all": 0,
+        },
+        "wind": {
+            "speed": 0,
+            "deg": 0,
+            "gust": 0,
+        },
+        "visibility": 0,
+        "pop": 0,
+        "sys": {
+            "pod": ""
+        },
+        "dt_txt": ""
+    },
+      {
+          "dt": 0,
+          "main": {
+              "temp": 0,
+              "feels_like": 0,
+              "temp_min": 0,
+              "temp_max": 0,
+              "pressure": 0,
+              "sea_level": 0,
+              "grnd_level": 0,
+              "humidity": 0,
+              "temp_kf": 0,
+          },
+          "weather": [
+              {
+                  "id": 0,
+                  "main": "",
+                  "description": "",
+                  "icon": ""
+              }
+          ],
+          "clouds": {
+              "all": 0,
+          },
+          "wind": {
+              "speed": 0,
+              "deg": 0,
+              "gust": 0,
+          },
+          "visibility": 0,
+          "pop": 0,
+          "sys": {
+              "pod": ""
+          },
+          "dt_txt": ""
+      },
+      {
+          "dt": 0,
+          "main": {
+              "temp": 0,
+              "feels_like": 0,
+              "temp_min": 0,
+              "temp_max": 0,
+              "pressure": 0,
+              "sea_level": 0,
+              "grnd_level": 0,
+              "humidity": 0,
+              "temp_kf": 0,
+          },
+          "weather": [
+              {
+                  "id": 0,
+                  "main": "",
+                  "description": "",
+                  "icon": ""
+              }
+          ],
+          "clouds": {
+              "all": 0,
+          },
+          "wind": {
+              "speed": 0,
+              "deg": 0,
+              "gust": 0,
+          },
+          "visibility": 0,
+          "pop": 0,
+          "sys": {
+              "pod": ""
+          },
+          "dt_txt": ""
+      },
+      {
+          "dt": 0,
+          "main": {
+              "temp": 0,
+              "feels_like": 0,
+              "temp_min": 0,
+              "temp_max": 0,
+              "pressure": 0,
+              "sea_level": 0,
+              "grnd_level": 0,
+              "humidity": 0,
+              "temp_kf": 0,
+          },
+          "weather": [
+              {
+                  "id": 0,
+                  "main": "",
+                  "description": "",
+                  "icon": ""
+              }
+          ],
+          "clouds": {
+              "all": 0,
+          },
+          "wind": {
+              "speed": 0,
+              "deg": 0,
+              "gust": 0,
+          },
+          "visibility": 0,
+          "pop": 0,
+          "sys": {
+              "pod": ""
+          },
+          "dt_txt": ""
+      },
+      {
+          "dt": 0,
+          "main": {
+              "temp": 0,
+              "feels_like": 0,
+              "temp_min": 0,
+              "temp_max": 0,
+              "pressure": 0,
+              "sea_level": 0,
+              "grnd_level": 0,
+              "humidity": 0,
+              "temp_kf": 0,
+          },
+          "weather": [
+              {
+                  "id": 0,
+                  "main": "",
+                  "description": "",
+                  "icon": ""
+              }
+          ],
+          "clouds": {
+              "all": 0,
+          },
+          "wind": {
+              "speed": 0,
+              "deg": 0,
+              "gust": 0,
+          },
+          "visibility": 0,
+          "pop": 0,
+          "sys": {
+              "pod": ""
+          },
+          "dt_txt": ""
+      },
+      {
+          "dt": 0,
+          "main": {
+              "temp": 0,
+              "feels_like": 0,
+              "temp_min": 0,
+              "temp_max": 0,
+              "pressure": 0,
+              "sea_level": 0,
+              "grnd_level": 0,
+              "humidity": 0,
+              "temp_kf": 0,
+          },
+          "weather": [
+              {
+                  "id": 0,
+                  "main": "",
+                  "description": "",
+                  "icon": ""
+              }
+          ],
+          "clouds": {
+              "all": 0,
+          },
+          "wind": {
+              "speed": 0,
+              "deg": 0,
+              "gust": 0,
+          },
+          "visibility": 0,
+          "pop": 0,
+          "sys": {
+              "pod": ""
+          },
+          "dt_txt": ""
+      },
+      {
+          "dt": 0,
+          "main": {
+              "temp": 0,
+              "feels_like": 0,
+              "temp_min": 0,
+              "temp_max": 0,
+              "pressure": 0,
+              "sea_level": 0,
+              "grnd_level": 0,
+              "humidity": 0,
+              "temp_kf": 0,
+          },
+          "weather": [
+              {
+                  "id": 0,
+                  "main": "",
+                  "description": "",
+                  "icon": ""
+              }
+          ],
+          "clouds": {
+              "all": 0,
+          },
+          "wind": {
+              "speed": 0,
+              "deg": 0,
+              "gust": 0,
+          },
+          "visibility": 0,
+          "pop": 0,
+          "sys": {
+              "pod": ""
+          },
+          "dt_txt": ""
+      },
+      {
+          "dt": 0,
+          "main": {
+              "temp": 0,
+              "feels_like": 0,
+              "temp_min": 0,
+              "temp_max": 0,
+              "pressure": 0,
+              "sea_level": 0,
+              "grnd_level": 0,
+              "humidity": 0,
+              "temp_kf": 0,
+          },
+          "weather": [
+              {
+                  "id": 0,
+                  "main": "",
+                  "description": "",
+                  "icon": ""
+              }
+          ],
+          "clouds": {
+              "all": 0,
+          },
+          "wind": {
+              "speed": 0,
+              "deg": 0,
+              "gust": 0,
+          },
+          "visibility": 0,
+          "pop": 0,
+          "sys": {
+              "pod": ""
+          },
+          "dt_txt": ""
+      },
+      {
+          "dt": 0,
+          "main": {
+              "temp": 0,
+              "feels_like": 0,
+              "temp_min": 0,
+              "temp_max": 0,
+              "pressure": 0,
+              "sea_level": 0,
+              "grnd_level": 0,
+              "humidity": 0,
+              "temp_kf": 0,
+          },
+          "weather": [
+              {
+                  "id": 0,
+                  "main": "",
+                  "description": "",
+                  "icon": ""
+              }
+          ],
+          "clouds": {
+              "all": 0,
+          },
+          "wind": {
+              "speed": 0,
+              "deg": 0,
+              "gust": 0,
+          },
+          "visibility": 0,
+          "pop": 0,
+          "sys": {
+              "pod": ""
+          },
+          "dt_txt": ""
+      },
+      {
+          "dt": 0,
+          "main": {
+              "temp": 0,
+              "feels_like": 0,
+              "temp_min": 0,
+              "temp_max": 0,
+              "pressure": 0,
+              "sea_level": 0,
+              "grnd_level": 0,
+              "humidity": 0,
+              "temp_kf": 0,
+          },
+          "weather": [
+              {
+                  "id": 0,
+                  "main": "",
+                  "description": "",
+                  "icon": ""
+              }
+          ],
+          "clouds": {
+              "all": 0,
+          },
+          "wind": {
+              "speed": 0,
+              "deg": 0,
+              "gust": 0,
+          },
+          "visibility": 0,
+          "pop": 0,
+          "sys": {
+              "pod": ""
+          },
+          "dt_txt": ""
+      },
+      {
+          "dt": 0,
+          "main": {
+              "temp": 0,
+              "feels_like": 0,
+              "temp_min": 0,
+              "temp_max": 0,
+              "pressure": 0,
+              "sea_level": 0,
+              "grnd_level": 0,
+              "humidity": 0,
+              "temp_kf": 0,
+          },
+          "weather": [
+              {
+                  "id": 0,
+                  "main": "",
+                  "description": "",
+                  "icon": ""
+              }
+          ],
+          "clouds": {
+              "all": 0,
+          },
+          "wind": {
+              "speed": 0,
+              "deg": 0,
+              "gust": 0,
+          },
+          "visibility": 0,
+          "pop": 0,
+          "sys": {
+              "pod": ""
+          },
+          "dt_txt": ""
+      },
+      {
+          "dt": 0,
+          "main": {
+              "temp": 0,
+              "feels_like": 0,
+              "temp_min": 0,
+              "temp_max": 0,
+              "pressure": 0,
+              "sea_level": 0,
+              "grnd_level": 0,
+              "humidity": 0,
+              "temp_kf": 0,
+          },
+          "weather": [
+              {
+                  "id": 0,
+                  "main": "",
+                  "description": "",
+                  "icon": ""
+              }
+          ],
+          "clouds": {
+              "all": 0,
+          },
+          "wind": {
+              "speed": 0,
+              "deg": 0,
+              "gust": 0,
+          },
+          "visibility": 0,
+          "pop": 0,
+          "sys": {
+              "pod": ""
+          },
+          "dt_txt": ""
+      },
+      {
+          "dt": 0,
+          "main": {
+              "temp": 0,
+              "feels_like": 0,
+              "temp_min": 0,
+              "temp_max": 0,
+              "pressure": 0,
+              "sea_level": 0,
+              "grnd_level": 0,
+              "humidity": 0,
+              "temp_kf": 0,
+          },
+          "weather": [
+              {
+                  "id": 0,
+                  "main": "",
+                  "description": "",
+                  "icon": ""
+              }
+          ],
+          "clouds": {
+              "all": 0,
+          },
+          "wind": {
+              "speed": 0,
+              "deg": 0,
+              "gust": 0,
+          },
+          "visibility": 0,
+          "pop": 0,
+          "sys": {
+              "pod": ""
+          },
+          "dt_txt": ""
+      },
+      {
+          "dt": 0,
+          "main": {
+              "temp": 0,
+              "feels_like": 0,
+              "temp_min": 0,
+              "temp_max": 0,
+              "pressure": 0,
+              "sea_level": 0,
+              "grnd_level": 0,
+              "humidity": 0,
+              "temp_kf": 0,
+          },
+          "weather": [
+              {
+                  "id": 0,
+                  "main": "",
+                  "description": "",
+                  "icon": ""
+              }
+          ],
+          "clouds": {
+              "all": 0,
+          },
+          "wind": {
+              "speed": 0,
+              "deg": 0,
+              "gust": 0,
+          },
+          "visibility": 0,
+          "pop": 0,
+          "sys": {
+              "pod": ""
+          },
+          "dt_txt": ""
+      },
+      {
+          "dt": 0,
+          "main": {
+              "temp": 0,
+              "feels_like": 0,
+              "temp_min": 0,
+              "temp_max": 0,
+              "pressure": 0,
+              "sea_level": 0,
+              "grnd_level": 0,
+              "humidity": 0,
+              "temp_kf": 0,
+          },
+          "weather": [
+              {
+                  "id": 0,
+                  "main": "",
+                  "description": "",
+                  "icon": ""
+              }
+          ],
+          "clouds": {
+              "all": 0,
+          },
+          "wind": {
+              "speed": 0,
+              "deg": 0,
+              "gust": 0,
+          },
+          "visibility": 0,
+          "pop": 0,
+          "sys": {
+              "pod": ""
+          },
+          "dt_txt": ""
+      },
+      {
+          "dt": 0,
+          "main": {
+              "temp": 0,
+              "feels_like": 0,
+              "temp_min": 0,
+              "temp_max": 0,
+              "pressure": 0,
+              "sea_level": 0,
+              "grnd_level": 0,
+              "humidity": 0,
+              "temp_kf": 0,
+          },
+          "weather": [
+              {
+                  "id": 0,
+                  "main": "",
+                  "description": "",
+                  "icon": ""
+              }
+          ],
+          "clouds": {
+              "all": 0,
+          },
+          "wind": {
+              "speed": 0,
+              "deg": 0,
+              "gust": 0,
+          },
+          "visibility": 0,
+          "pop": 0,
+          "sys": {
+              "pod": ""
+          },
+          "dt_txt": ""
+      },
+      {
+          "dt": 0,
+          "main": {
+              "temp": 0,
+              "feels_like": 0,
+              "temp_min": 0,
+              "temp_max": 0,
+              "pressure": 0,
+              "sea_level": 0,
+              "grnd_level": 0,
+              "humidity": 0,
+              "temp_kf": 0,
+          },
+          "weather": [
+              {
+                  "id": 0,
+                  "main": "",
+                  "description": "",
+                  "icon": ""
+              }
+          ],
+          "clouds": {
+              "all": 0,
+          },
+          "wind": {
+              "speed": 0,
+              "deg": 0,
+              "gust": 0,
+          },
+          "visibility": 0,
+          "pop": 0,
+          "sys": {
+              "pod": ""
+          },
+          "dt_txt": ""
+      },
+      {
+          "dt": 0,
+          "main": {
+              "temp": 0,
+              "feels_like": 0,
+              "temp_min": 0,
+              "temp_max": 0,
+              "pressure": 0,
+              "sea_level": 0,
+              "grnd_level": 0,
+              "humidity": 0,
+              "temp_kf": 0,
+          },
+          "weather": [
+              {
+                  "id": 0,
+                  "main": "",
+                  "description": "",
+                  "icon": ""
+              }
+          ],
+          "clouds": {
+              "all": 0,
+          },
+          "wind": {
+              "speed": 0,
+              "deg": 0,
+              "gust": 0,
+          },
+          "visibility": 0,
+          "pop": 0,
+          "sys": {
+              "pod": ""
+          },
+          "dt_txt": ""
+      },
+      {
+          "dt": 0,
+          "main": {
+              "temp": 0,
+              "feels_like": 0,
+              "temp_min": 0,
+              "temp_max": 0,
+              "pressure": 0,
+              "sea_level": 0,
+              "grnd_level": 0,
+              "humidity": 0,
+              "temp_kf": 0,
+          },
+          "weather": [
+              {
+                  "id": 0,
+                  "main": "",
+                  "description": "",
+                  "icon": ""
+              }
+          ],
+          "clouds": {
+              "all": 0,
+          },
+          "wind": {
+              "speed": 0,
+              "deg": 0,
+              "gust": 0,
+          },
+          "visibility": 0,
+          "pop": 0,
+          "sys": {
+              "pod": ""
+          },
+          "dt_txt": ""
+      },
+      {
+          "dt": 0,
+          "main": {
+              "temp": 0,
+              "feels_like": 0,
+              "temp_min": 0,
+              "temp_max": 0,
+              "pressure": 0,
+              "sea_level": 0,
+              "grnd_level": 0,
+              "humidity": 0,
+              "temp_kf": 0,
+          },
+          "weather": [
+              {
+                  "id": 0,
+                  "main": "",
+                  "description": "",
+                  "icon": ""
+              }
+          ],
+          "clouds": {
+              "all": 0,
+          },
+          "wind": {
+              "speed": 0,
+              "deg": 0,
+              "gust": 0,
+          },
+          "visibility": 0,
+          "pop": 0,
+          "sys": {
+              "pod": ""
+          },
+          "dt_txt": ""
+      },
+      {
+          "dt": 0,
+          "main": {
+              "temp": 0,
+              "feels_like": 0,
+              "temp_min": 0,
+              "temp_max": 0,
+              "pressure": 0,
+              "sea_level": 0,
+              "grnd_level": 0,
+              "humidity": 0,
+              "temp_kf": 0,
+          },
+          "weather": [
+              {
+                  "id": 0,
+                  "main": "",
+                  "description": "",
+                  "icon": ""
+              }
+          ],
+          "clouds": {
+              "all": 0,
+          },
+          "wind": {
+              "speed": 0,
+              "deg": 0,
+              "gust": 0,
+          },
+          "visibility": 0,
+          "pop": 0,
+          "sys": {
+              "pod": ""
+          },
+          "dt_txt": ""
+      },
+      {
+          "dt": 0,
+          "main": {
+              "temp": 0,
+              "feels_like": 0,
+              "temp_min": 0,
+              "temp_max": 0,
+              "pressure": 0,
+              "sea_level": 0,
+              "grnd_level": 0,
+              "humidity": 0,
+              "temp_kf": 0,
+          },
+          "weather": [
+              {
+                  "id": 0,
+                  "main": "",
+                  "description": "",
+                  "icon": ""
+              }
+          ],
+          "clouds": {
+              "all": 0,
+          },
+          "wind": {
+              "speed": 0,
+              "deg": 0,
+              "gust": 0,
+          },
+          "visibility": 0,
+          "pop": 0,
+          "sys": {
+              "pod": ""
+          },
+          "dt_txt": ""
+      },
+      {
+          "dt": 0,
+          "main": {
+              "temp": 0,
+              "feels_like": 0,
+              "temp_min": 0,
+              "temp_max": 0,
+              "pressure": 0,
+              "sea_level": 0,
+              "grnd_level": 0,
+              "humidity": 0,
+              "temp_kf": 0,
+          },
+          "weather": [
+              {
+                  "id": 0,
+                  "main": "",
+                  "description": "",
+                  "icon": ""
+              }
+          ],
+          "clouds": {
+              "all": 0,
+          },
+          "wind": {
+              "speed": 0,
+              "deg": 0,
+              "gust": 0,
+          },
+          "visibility": 0,
+          "pop": 0,
+          "sys": {
+              "pod": ""
+          },
+          "dt_txt": ""
+      },
+      {
+          "dt": 0,
+          "main": {
+              "temp": 0,
+              "feels_like": 0,
+              "temp_min": 0,
+              "temp_max": 0,
+              "pressure": 0,
+              "sea_level": 0,
+              "grnd_level": 0,
+              "humidity": 0,
+              "temp_kf": 0,
+          },
+          "weather": [
+              {
+                  "id": 0,
+                  "main": "",
+                  "description": "",
+                  "icon": ""
+              }
+          ],
+          "clouds": {
+              "all": 0,
+          },
+          "wind": {
+              "speed": 0,
+              "deg": 0,
+              "gust": 0,
+          },
+          "visibility": 0,
+          "pop": 0,
+          "sys": {
+              "pod": ""
+          },
+          "dt_txt": ""
+      },
+      {
+          "dt": 0,
+          "main": {
+              "temp": 0,
+              "feels_like": 0,
+              "temp_min": 0,
+              "temp_max": 0,
+              "pressure": 0,
+              "sea_level": 0,
+              "grnd_level": 0,
+              "humidity": 0,
+              "temp_kf": 0,
+          },
+          "weather": [
+              {
+                  "id": 0,
+                  "main": "",
+                  "description": "",
+                  "icon": ""
+              }
+          ],
+          "clouds": {
+              "all": 0,
+          },
+          "wind": {
+              "speed": 0,
+              "deg": 0,
+              "gust": 0,
+          },
+          "visibility": 0,
+          "pop": 0,
+          "sys": {
+              "pod": ""
+          },
+          "dt_txt": ""
+      },
+      {
+          "dt": 0,
+          "main": {
+              "temp": 0,
+              "feels_like": 0,
+              "temp_min": 0,
+              "temp_max": 0,
+              "pressure": 0,
+              "sea_level": 0,
+              "grnd_level": 0,
+              "humidity": 0,
+              "temp_kf": 0,
+          },
+          "weather": [
+              {
+                  "id": 0,
+                  "main": "",
+                  "description": "",
+                  "icon": ""
+              }
+          ],
+          "clouds": {
+              "all": 0,
+          },
+          "wind": {
+              "speed": 0,
+              "deg": 0,
+              "gust": 0,
+          },
+          "visibility": 0,
+          "pop": 0,
+          "sys": {
+              "pod": ""
+          },
+          "dt_txt": ""
+      },
+      {
+          "dt": 0,
+          "main": {
+              "temp": 0,
+              "feels_like": 0,
+              "temp_min": 0,
+              "temp_max": 0,
+              "pressure": 0,
+              "sea_level": 0,
+              "grnd_level": 0,
+              "humidity": 0,
+              "temp_kf": 0,
+          },
+          "weather": [
+              {
+                  "id": 0,
+                  "main": "",
+                  "description": "",
+                  "icon": ""
+              }
+          ],
+          "clouds": {
+              "all": 0,
+          },
+          "wind": {
+              "speed": 0,
+              "deg": 0,
+              "gust": 0,
+          },
+          "visibility": 0,
+          "pop": 0,
+          "sys": {
+              "pod": ""
+          },
+          "dt_txt": ""
+      },
+  ],
+  "city": {
+      "id": 804,
+      "name": "москва",
+      "coord": {
+          "lat": -99.2506,
+          "lon": 37.6156
+      },
+      "country": "ru",
+      "population": 0,
+      "timezone": 0,
+      "sunrise": 0,
+      "sunset": 0,
+  }
+}
 
 export const fiveDaysAction = createAsyncThunk(
   'weather/fiveDays',
@@ -30,6 +1531,10 @@ export const fiveDaysAction = createAsyncThunk(
       const res = await api.get<string>(`${secondPartURL}`);
       return res.data;
     } catch (error) {
+      // const qqq:FiveDays = useAppSelector(state=> state.fiveDaysWeatherReducer.main)
+      // return qqq;
+      return {...tttt}
+      // return tttt
       console.log('error ', error);
     };
       

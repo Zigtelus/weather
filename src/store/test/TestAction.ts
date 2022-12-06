@@ -11,13 +11,11 @@ export const testAction = createAsyncThunk(
   async (_, thunkAPI) => {
 
     const secondPartURL = `/v2/pokemon/ditto`;
-    console.log('testAction')
 
     try {
       const res = await api.get<string>(`${secondPartURL}`);
       return res.data;
     } catch (e) {
-      console.log('testAction')
       console.log('error');
     };
       
