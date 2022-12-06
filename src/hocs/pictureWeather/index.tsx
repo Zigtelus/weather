@@ -29,7 +29,7 @@ const PictureWeatherHok = (style : PictureWeatherHokType)=> {
 
   const PictureWeatherBase: React.FC <PictureWeatherBaseType> = ({weatherNow, city})=> {
 
-    const addNight = city && sunriseSunset(city.sunrise, city.sunset, weatherNow.dt);
+    const addNight = city && sunriseSunset(city.sunrise, city.sunset, city.timezone, weatherNow.dt);
 
     return <>
 

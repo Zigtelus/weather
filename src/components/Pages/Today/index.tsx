@@ -40,10 +40,10 @@ function NowtimeWeather(): JSX.Element {
   const selector = useAppSelector(state => state);
   const nowtimeWeather = selector.nowtimeWeatherReducer;
   const fiveDaysWeather = selector.fiveDaysWeatherReducer;
-
   const listFiveDays = fiveDaysWeather.main.list;
   const [statusPushMessage, setStatusPushMessage] = useState(false);
   const loading = fiveDaysWeather.loading
+
 
 
   const [country, setCountry] = useState<number>(0);
@@ -52,7 +52,7 @@ function NowtimeWeather(): JSX.Element {
 
   type Error = { code: number, message: string };  
   const thisError = (error?: Error)=> {
-    thisPosition({coords: {latitude: 55.7522200, longitude: 37.6155600}})
+    thisPosition({coords: {latitude: 55.751667, longitude: 37.617778}})
     setStatusPushMessage(true);
   };
 
@@ -98,7 +98,8 @@ function NowtimeWeather(): JSX.Element {
               <div className='weather_main__picture_weather'>
                 <div className="weather_main__picture_weather__contain">
                   <PictureWeather
-                    weatherNow={nowtimeWeather.main}
+                    weatherNow={fiveDaysWeather.main.list[0]}
+                    city={fiveDaysWeather.main.city}
                   />
                 </div>
                 {/* <span style={{fontSize: '1.2em'}}>{nowtimeWeather.main.weather[0].description}</span> */}

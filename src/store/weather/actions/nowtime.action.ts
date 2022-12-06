@@ -44,13 +44,13 @@ const tttt = {
     "sys": {
         "type": 0,
         "id": 0,
-        "country": "ru",
+        "country": "en",
         "sunrise": 0,
         "sunset": 0,
     },
     "timezone": 0,
     "id": 0,
-    "name": "Москва",
+    "name": "москва",
     "cod": 0,
 }
 

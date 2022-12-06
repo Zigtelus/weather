@@ -1,4 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { sunriseSunset } from "src/helpers/sunriseSunset";
+import { timeZone } from "src/helpers/timeZone";
 import { FiveDays } from "src/types/weather/fiveDays";
 import { fiveDaysAction } from "../actions/fiveDays.action";
 
@@ -84,7 +86,7 @@ export const initialStateFD: InitialState = {
         "visibility": 0,
         "pop": 0,
         "sys": {
-          "pod": "d"
+          "pod": ""
         },
         "dt_txt": "",
       },
@@ -118,7 +120,31 @@ export const fiveDaySlice = createSlice({
   },
   extraReducers: {
     [fiveDaysAction.fulfilled.type]: (state, action) => {
+
       state.main = {...action.payload};
+
+      // console.log('fiveDaysAction.fulfilled.type ',  action.payload.city)
+      if (!!action.payload.city) {
+        for (let i = 0; i < action.payload.list.length-1; i++) {
+
+          const five = {
+            main: action.payload
+          }
+          
+          const isTimeZone = timeZone(five.main, i);
+          // console.log( '____1___' )
+          // console.log( '____1___' )
+          // console.log(state.main.list[i].dt)
+          // console.log(state.main.list[i].dt_txt)
+          // console.log(isTimeZone)
+          // console.log( '____2___' )
+          // console.log( '____2___' )
+          state.main.list[i].dt_txt = isTimeZone
+        }
+      }
+
+      // console.log(sunriseSunset(state.main.city.sunrise, state.main.city.sunset))
+      // console.log(state.main.list)
       state.loading = false;
     },
     [fiveDaysAction.pending.type]: (state, action)=> {

@@ -1493,17 +1493,17 @@ const tttt = {
       },
   ],
   "city": {
-      "id": 524901,
-      "name": "Москва",
+      "id": 804,
+      "name": "москва",
       "coord": {
-          "lat": 55.7522,
+          "lat": -99.2506,
           "lon": 37.6156
       },
       "country": "ru",
-      "population": 1000000,
-      "timezone": 10800,
-      "sunrise": 1670045871,
-      "sunset": 1670072461
+      "population": 0,
+      "timezone": 0,
+      "sunrise": 0,
+      "sunset": 0,
   }
 }
 
