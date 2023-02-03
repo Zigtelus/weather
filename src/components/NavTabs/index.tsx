@@ -30,7 +30,7 @@ function NavTabs(): JSX.Element {
       const item = i * (tableTabsWidth / lengthObject) + offset;
       position.push(`${item}px`);
       i++;
-    }
+    };
 
     return position;
   };
