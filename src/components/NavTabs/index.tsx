@@ -2,18 +2,22 @@
 import s from './navtabs.module.scss'
 import { useEffect, useRef, useState } from 'react'
 import Links from './Links';
+import { useAppSelector } from 'src/hooks/redux';
 
 function NavTabs(): JSX.Element {
 
-
   const location = window.location;
+
+  const fiveDaysWeatherReducer = useAppSelector(state => state.fiveDaysWeatherReducer.main);
+  const articleReducer = useAppSelector(state => state.articleReducer.main);
+  const articlesReducer = useAppSelector(state => state.articlesReducer.main);
+
   const [tab, setTab] = useState<number>(0);
   const [findPlaceLine, setFindPlaceLine] = useState<string[]>([]);
   const tableTabs = useRef<HTMLDivElement | null>(null);
 
-
   const days = {
-    "today": 'Weather 24 hours',
+    "weather": 'Weather 24 hours',
     // "fiveDays": '5 дней',
     // "run": 'run'
     "blog": 'Blog'
@@ -40,13 +44,12 @@ function NavTabs(): JSX.Element {
   useEffect(()=> {
     getPlaceLinea()
     
-
     let i = -1
     while ( i++ < Object.keys(days).length -1) {
       Object.keys(days)[i] === location.pathname.split('/')[1] &&
       setTab(Number(i))
     }
-  },[0])
+  },[location.href])
 
   return (
     <div

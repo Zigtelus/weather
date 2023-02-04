@@ -1082,7 +1082,8 @@ function SearchCity(): JSX.Element {
     <div
       style={{
         "display": "flex",
-        "width": "100%"
+        "width": "100%",
+        "alignItems": "center"
       }}
     >
       <button
@@ -1090,7 +1091,7 @@ function SearchCity(): JSX.Element {
           cursor: 'pointer',
           width: '80px',
           height: '30px',
-          margin: '10px 0'
+          margin: '10px 10px 10px 0'
         }}
         onClick={()=> setNameCountry('us')}
       >US</button>
@@ -1099,10 +1100,13 @@ function SearchCity(): JSX.Element {
           cursor: 'pointer',
           width: '80px',
           height: '30px',
-          margin: '10px 0'
+          margin: '10px 10px 10px 0'
         }}
         onClick={()=> setNameCountry('ru')}
       >RU</button>
+      <span>
+        search for cities in the zone
+      </span>
       {/* <button
         style={{
           cursor: 'pointer',
