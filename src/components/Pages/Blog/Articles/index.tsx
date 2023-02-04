@@ -54,7 +54,7 @@ function Articles(): JSX.Element {
           key={index}
           to={`/blog/${item.articleId}`} 
           className='articles__item'
-          style={{"backgroundImage": `url(http://localhost:3000/uploads/${item.cover})`}}
+          style={{"backgroundImage": `url(https://weather-back-deploy.herokuapp.com/uploads/${item.cover})`}}
         >
           {
             !!user &&
@@ -85,7 +85,7 @@ function Articles(): JSX.Element {
             && 
             <img 
               style={{width: '100%', position: "absolute", top: '0px', left: '0px', opacity: '0.1'}}
-              src={`http://localhost:3000/uploads/${item.cover}`}
+              src={`https://weather-back-deploy.herokuapp.com/uploads/${item.cover}`}
               alt="" 
             />
           } */}

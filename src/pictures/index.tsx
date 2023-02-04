@@ -8,7 +8,7 @@ type Props = {
 const Pictures = ({isRef, isSrc}: Props): JSX.Element => {
   return <img 
     ref={isRef}
-    src={`http://localhost:3000/uploads/${isSrc}`} 
+    src={`https://weather-back-deploy.herokuapp.com/uploads/${isSrc}`} 
     alt="" 
   />
 }

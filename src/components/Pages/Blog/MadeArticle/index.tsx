@@ -41,7 +41,7 @@ function MadeArticle({idUser, userName, roleUser, showForm, formRef}: Props): JS
     form.append("auter", auterName)
 
 
-    const URL = "http://localhost:3000/main/api/article/upload";
+    const URL = "https://weather-back-deploy.herokuapp.com/main/api/article/upload";
     getData(URL, 'POST', form)
     .then((response) => {
       return response;

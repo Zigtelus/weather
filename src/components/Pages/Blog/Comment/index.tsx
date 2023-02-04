@@ -25,7 +25,7 @@ function Comment(
 
   // commentRef.current.innerHTML = 
   // const qqq = ()=> {
-  //   const URL = 'http://localhost:3000/main/api/users/b1e741c5-46ba-4705-91e7-b754ec3df054'
+  //   const URL = 'https://weather-back-deploy.herokuapp.com/main/api/users/b1e741c5-46ba-4705-91e7-b754ec3df054'
 
   const [chengeComment, setChengeComment] = useState<boolean>(false)
   //   fetchSend(URL)

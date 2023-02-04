@@ -77,7 +77,7 @@ function Article(): JSX.Element {
 
 
 
-  const URL: string = `http://localhost:3000/main/api/comments/comment/${id}`
+  const URL: string = `https://weather-back-deploy.herokuapp.com/main/api/comments/comment/${id}`
   function sendForm(e: any, user: any) {
 
     e.preventDefault()
@@ -131,7 +131,7 @@ function Article(): JSX.Element {
 
     const form1 = {...form}
 
-    const URL = `http://localhost:3000/main/api/article/${articleId}/statisctics`;
+    const URL = `https://weather-back-deploy.herokuapp.com/main/api/article/${articleId}/statisctics`;
 
 
     likeDislike === 'likes' && form1.likes.push(userId)
