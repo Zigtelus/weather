@@ -4,6 +4,10 @@ import getNameCityReducer from "./weather/slices/nameCity.slice";
 import nowtimeWeatherReducer from "./weather/slices/nowtime.slice";
 import testReducer from "./test/TestSlice";
 import ussersReducer from "./users/slice/users.slice";
+import articlesReducer from "./articles/slices/articles.slice";
+import articleReducer from "./articles/slices/article.slice";
+import commentsReducer from "./comments/slices/comments.slice";
+import pushMessageReducer from "./pushMessage/pushMessage.slice";
 
 
 const rootReducer = combineReducers({
@@ -11,7 +15,11 @@ const rootReducer = combineReducers({
     fiveDaysWeatherReducer,
     getNameCityReducer,
     testReducer,
-    ussersReducer
+    ussersReducer,
+    articlesReducer,
+    articleReducer,
+    commentsReducer,
+    pushMessageReducer
 })
 
 export const setupStore = () => configureStore ({

@@ -5,8 +5,7 @@ function useTimeout(timer:number = 80) {
   let time: number = 0;
   let timeout: ReturnType<typeof setTimeout>;
 
-  return (
-    refresh: ()=> void ) => {
+  return ( refresh: ()=> void ) => {
     clearTimeout(timeout);
     time = timer;
     timeout = setTimeout(()=> {

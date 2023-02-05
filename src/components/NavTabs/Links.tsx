@@ -5,9 +5,8 @@ import { dateWeather } from "../../routes";
 
 type Props = {
   days: {
-    today: string,
-    fiveDays: string,
-    run: string,
+    weather: string,
+    blog: string
   }
 };
 
@@ -24,8 +23,8 @@ function Links ({days}: Props): JSX.Element {
       <NavLink
         id={`${index}`}
         key={index}
-        className={s.tabs}
-        to={`weather${dateWeather[item]}`}
+        className={`${s.tabs} ${s.tabs}_${index}`}
+        to={`${dateWeather[item]}`}
       >
         {days[item]}
       </NavLink>
