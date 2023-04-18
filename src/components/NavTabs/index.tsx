@@ -19,8 +19,8 @@ function NavTabs(): JSX.Element {
   const days = {
     "weather": 'Weather 24 hours',
     // "fiveDays": '5 дней',
-    // "run": 'run'
-    "blog": 'Blog'
+    "blog": 'Blog',
+    // "run": 'Run',
   };
   
   const getPlaceLinea = ()=> {

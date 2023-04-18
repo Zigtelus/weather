@@ -5,7 +5,8 @@ import { articlesAction } from "../actions/articles.action";
 
 
 export type InitialState = {
-  "main": Article[]
+  "main": Article[];
+  "loading": boolean;
 }
 
 const initialState: InitialState = {
@@ -28,7 +29,8 @@ const initialState: InitialState = {
       },
       datePublication: ''
     }
-  ]
+  ],
+  "loading": false
 };
 
 export const articlesSlice = createSlice({
@@ -45,8 +47,10 @@ export const articlesSlice = createSlice({
   extraReducers: {
     [articlesAction.fulfilled.type]: (state, action) => {
       state.main = [...action.payload].reverse();
+      state.loading = false;
     },
     [articlesAction.pending.type]: (state, action) => {
+      state.loading = true;
         
     },
     [articlesAction.rejected.type]: (state, action) => console.log('error'),
