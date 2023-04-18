@@ -1,0 +1,53 @@
+.picture_weather__body {
+  display: flex;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background-color: #322e36;
+}
+
+.picture_weather__night {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(rgb(50, 46, 54) 30%, rgb(12 21 67) 221%);
+}
+
+.picture_weather__day {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(rgb(171 192 255) 30%, rgb(187 0 8) 221%);
+}
+
+
+
+.qqqqq {
+  animation: 3s slidein infinite;
+}
+
+@keyframes slidein {
+  from { 
+    left: 0%;
+    animation-timing-function: linear;
+  }
+  to   { 
+    left: 100%;
+    animation-timing-function: linear;
+  }
+}
+
+
+.qqqqq1 {
+  animation: 3s slidein1 infinite;
+  // display: none;
+}
+
+@keyframes slidein1 {
+  from { 
+    left: -100%;
+    animation-timing-function: linear;
+  }
+  to   { 
+    left: 0%;
+    animation-timing-function: linear;
+  }
+}

@@ -11,13 +11,12 @@ export const getUsersActions = createAsyncThunk(
   async (_, thunkAPI) => {
 
     
-    let secondPartURL = `/products/`;
+    let secondPartURL = `/users/`;
 
     try {
       const res = await api.get<string>(`${secondPartURL}`);
       return res.data;
     } catch (error) {
-      console.log('getUsersAction');
       console.log('error ', error);
     };
       

@@ -1,7 +1,9 @@
 
 export enum dateWeather {
     "nowtime" = '/',
-    "today" = '/',
+    "weather" = '/weather',
     "fiveDays" = '/fiveDays',
     "run" = '/run',
+    "blog" = '/blog',
+    "blogg" = '/weatherr',
 }

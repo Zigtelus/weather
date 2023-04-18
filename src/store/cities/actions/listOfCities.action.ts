@@ -16,7 +16,6 @@ export const listOfCitiesAction = createAsyncThunk(
             const res = await api.get<string>(`${secondPartURL}`);
             return res.data;
         } catch (error) {
-            console.log('listOfCitiesAction')
             console.log('error ', error);
         };
         
