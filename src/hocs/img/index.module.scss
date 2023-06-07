@@ -226,20 +226,21 @@
 
 
 .rain {
-  width: 130%;
+  width: 1730px;
+  height: 278px;
   position: absolute;
-  // top: 0;
-  opacity: 0.3;
-  animation: 0.3s rain infinite;
+  z-index: 20;
+  opacity: 0.2;
+  animation: 2s rain infinite;
   animation-timing-function: linear;
 }
 @keyframes rain {
   from { 
-    top: -20px;
-    left: -2px;
+    top: -157px;
+    left: 0px;
   }
   to   { 
-    top: 7px;
-    left: -12px;
+    top: 0px;
+    left: -100px;
   }
 }

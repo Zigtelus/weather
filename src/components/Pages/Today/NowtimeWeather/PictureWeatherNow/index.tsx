@@ -6,8 +6,8 @@ import PictureWeatherHok from "src/hocs/pictureWeather";
 const classNames = {
   sun: 'sun',
   soon: 'soon',
-  cloud: 'cloud-first',
-  cloud2: 'cloud-second',
+  cloud: 'cloud-first cloud-now',
+  cloud2: 'cloud-second cloud-now',
   rain: 'rain',
   wind: 'wind'
 }

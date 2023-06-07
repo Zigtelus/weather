@@ -1,39 +1,46 @@
 
+// функция опредлеяющая время рассвета и заката по UNIX данным
 function sunriseSunset(sunriseUtc: number, sunsetUtc: number, timezone: number, nowTime: number) {
-
+  
+  // получение часов (без минут) из UNIX формата
   function getTimeUTC(timeSunrise: number) {
 
-    const dateSunrise = new Date(timeSunrise * 1000);
-    const hoursSunrise = dateSunrise.getUTCHours();
-    const minutesSunrise = dateSunrise.getUTCMinutes();
+    // UNIX формат побязательно умножить на 1000 для получения данных
+    const date = new Date(timeSunrise * 1000);
+    
+    // Получаем UTC время строкой
+    const utcHours = date.getUTCHours();
+    
+    // Форматируем значение, чтобы добавить ведущий ноль, если часы < 10
+    const formattedHours = utcHours.toString().padStart(2, '0');
   
-    return hoursSunrise
+    // часы в минуты обращаем
+    return Number(formattedHours)
   };
   
+
+  // временная зона города, который показывает погоду
+  // из UTC формата получает часы 
   const isTimeZone = timezone / 60 / 60
 
+
+  // получаем нужное время с учетом временной зоны
   const hours = (time: number)=> {
 
-    if (time === 0) {
-      const item = 24 - isTimeZone
-      if (item > 24) {
-        return 24 + isTimeZone
-      }
-      return item
+    let newTime = time
+
+    // добавляем или убавляем временную зону (+ на - дает -, а на + не меняется)
+    newTime += isTimeZone
+
+    if (newTime < 0) {
+      newTime += 24
+    } else if (newTime === 0) {
+      newTime = 24
+    } else if (newTime > 24) {
+      newTime -= 24
     }
 
-
-    const item = time + isTimeZone
-    if (item > 24) {
-      return item - 24
-    } 
-
-    if (item < 0) {
-      return 24 + item
-    }
-    
-
-    return item
+    return newTime
   }
 
   const timesUTC = {
@@ -41,14 +48,18 @@ function sunriseSunset(sunriseUtc: number, sunsetUtc: number, timezone: number, 
     sunset: hours(getTimeUTC(sunsetUtc)),
     nowtime: getTimeUTC(nowTime + timezone),
   }
-  
-  // console.log(timesUTC)
-  if (timesUTC.sunset >= timesUTC.nowtime && timesUTC.nowtime >= timesUTC.sunrise) {
-    return true
-  } else {
-    return false
-  }
 
+  if ((timesUTC.sunset > timesUTC.nowtime) === (timesUTC.nowtime >= timesUTC.sunrise)) {
+    return {
+      ...timesUTC,
+      timesOfDay: 'light'
+    }
+  } else {
+    return {
+      ...timesUTC,
+      timesOfDay: 'nieght'
+    }
+  }
 
 }
 

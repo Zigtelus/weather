@@ -20,7 +20,7 @@ function ExampleAllWeatherIcons(): JSX.Element {
   const city2 = {
     sunrise: 1675257853, 
     sunset: 1675296082, 
-    timezone: -21600
+    timezone: 21600
   }
     
   const weatherNow1 = {

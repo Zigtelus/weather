@@ -71,7 +71,9 @@ const PictureWeatherHok = (
     // console.log('city.timezone ', city.timezone)
     // console.log('weatherNow.dt ', weatherNow.dt)}
     
-    const addNight = city && sunriseSunset(city.sunrise, city.sunset, city.timezone, weatherNow.dt);
+    const times = sunriseSunset(city!.sunrise, city!.sunset, city!.timezone, weatherNow.dt)
+
+    const addLight = times.timesOfDay === 'light';
 
     return <>
 
@@ -86,22 +88,22 @@ const PictureWeatherHok = (
       >
 
         { 
-          addNight ? 
+          addLight ? 
           (clouds(weatherNow.clouds.all) >= 1 && <ImgWeatherCloud />) :
           (clouds(weatherNow.clouds.all) >= 1 && <ImgWeatherCloud amPm={'am'} />)
         }
         { 
-          addNight ? 
+          addLight ? 
           (clouds(weatherNow.clouds.all) >= 2 && <ImgWeatherCloud2 />) :
           clouds(weatherNow.clouds.all) >= 2 && <ImgWeatherCloud2 amPm={'am'} />
         }
 
         {wind(weatherNow.wind.speed) !== 'слабый ветер' && <ImgWeatherWind />}
-        {clouds(weatherNow.clouds.all) < 3 && (addNight ? <ImgWeatherSun /> : <ImgWeatherSoon />)}
+        {clouds(weatherNow.clouds.all) < 3 && (addLight ? <ImgWeatherSun /> : <ImgWeatherSoon />)}
         {weatherNow.rain && <ImgWeatherRain />}
         <div
-          className={addNight ? 'picture_weather__day' : 'picture_weather__night'}
-          // style={{background: `${addNight ? 'linear-gradient(rgb(171 192 255) 30%, rgb(187 0 8) 221%)' : 'linear-gradient(rgb(50, 46, 54) 30%, rgb(12 21 67) 221%)'}`, width: '100%', height: '100%'}}
+          className={addLight ? 'picture_weather__day' : 'picture_weather__night'}
+          // style={{background: `${addLight ? 'linear-gradient(rgb(171 192 255) 30%, rgb(187 0 8) 221%)' : 'linear-gradient(rgb(50, 46, 54) 30%, rgb(12 21 67) 221%)'}`, width: '100%', height: '100%'}}
         ></div>
         {/* <div style={{background: `radial-gradient(40% 50%, #FAECD5, #CAE4D8)`, width: '100%', height: '100%'}}></div> */}
 

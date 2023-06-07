@@ -48,7 +48,8 @@ function NowtimeWeather(): JSX.Element {
 
   const city = fiveDaysWeather.main.city;
   const weatherNow = fiveDaysWeather.main.list[0];
-  const addNight = city && sunriseSunset(city.sunrise, city.sunset, city.timezone, weatherNow.dt);
+  const times = sunriseSunset(city.sunrise, city.sunset, city.timezone, weatherNow.dt);
+  const addNight = times.timesOfDay === 'light';
 
 
   const [instruction, setInstruction] = useState<boolean>(false);
@@ -105,7 +106,6 @@ function NowtimeWeather(): JSX.Element {
                 fiveDaysWeather={fiveDaysWeather.main}
               />
 
-
               <PictureWeatherNow
                 weatherNow={weatherNow}
                 city={city}
@@ -122,14 +122,13 @@ function NowtimeWeather(): JSX.Element {
               {nowtimeWeather.main.visibility > 1000 && nowtimeWeather.main.visibility / 1000} 
               {nowtimeWeather.main.visibility > 1000 ? 'км' : 'метров'}
             </span>
-
+            
+            <div>
+              рассвет {times.sunrise} - закат {times.sunset}
+            </div>
             
             <div style={{width:"100%"}}>
-              
-              
               <ItemsDay fiveDaysWeather={fiveDaysWeather.main}/>
-
-
             </div>
 
             {/* <PictureWeatherSmall
