@@ -31,9 +31,7 @@ export function Registration (): JSX.Element {
     !!getUserInLocalStorage &&
     dispatch(getUserFomLocalStorage(JSON.parse(getUserInLocalStorage)))
 
-    
-    // localStorage.removeItem('isUser')
-  }, [0])
+  }, [0]) //@typescript-eslint/no-unused-vars
 
   const logoutHowUser = ()=> {
     localStorage.removeItem('isUser')

@@ -1,15 +1,9 @@
 import './index.scss';
-import ImgWeatherHoc from "src/hocs/img";
 import { PictureWeatherSmall } from "../../PictureWeatherSmall"
 
 
 
 function ExampleAllWeatherIcons(): JSX.Element {
-
-
-
-
-
 
 
   const city1 = {
@@ -21,19 +15,6 @@ function ExampleAllWeatherIcons(): JSX.Element {
     sunrise: 1675257853, 
     sunset: 1675296082, 
     timezone: 21600
-  }
-    
-  const weatherNow1 = {
-    dt: 1675350000,
-    clouds: {
-      all: 30,
-    },
-    wind: {
-      speed:1.77
-    },
-    rain: {
-      "3h": 0
-    }
   }
     
   const weatherNow2 = {

@@ -1,4 +1,4 @@
-import { ImgHTMLAttributes, MutableRefObject, useRef } from "react";
+import { MutableRefObject } from "react";
 
 type Props = {
   isRef?: MutableRefObject<HTMLImageElement>;

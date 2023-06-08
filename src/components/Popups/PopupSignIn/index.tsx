@@ -1,14 +1,10 @@
 import './index.scss';
-import { MutableRefObject, useEffect, useRef, useState } from "react";
+import { MutableRefObject, useRef, useState } from "react";
 import LoadingAnimation from "src/helpers/LoadingAnimation";
 import inputHoc from "src/hocs/inputs/inputHoc";
 import PopupHoc from "src/hocs/popup";
 import { useAppDispatch, useAppSelector } from "src/hooks/redux";
 import { getUserActions } from "src/store/users/actions/getUser.action";
-
-
-
-
 
 
 export default function PopupSignIn({closeOpen}: {closeOpen: ()=> void}): JSX.Element {

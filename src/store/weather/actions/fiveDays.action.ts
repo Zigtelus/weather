@@ -1,8 +1,5 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { useAppSelector } from "src/hooks/redux";
-import { FiveDays } from "src/types/weather/fiveDays";
 import { createAPI, dataUser, KEY } from "../createApi";
-import { initialStateFD } from "../slices/fiveDays.slice";
 
 
 

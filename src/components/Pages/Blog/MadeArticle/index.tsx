@@ -1,7 +1,6 @@
-import { MouseEvent, MutableRefObject, useEffect, useRef, useState } from 'react';
+import { MouseEvent, MutableRefObject, useRef, useState } from 'react';
 import { sendTextForPush } from 'src/helpers/sendPushMessage';
 import { useAppDispatch, useAppSelector } from 'src/hooks/redux';
-import { addText } from 'src/store/pushMessage/pushMessage.slice';
 import './index.scss'
 
 type Props = {
@@ -22,13 +21,6 @@ function MadeArticle({idUser, userName, roleUser, showForm, formRef}: Props): JS
 
   const [textHeight, setTextHeight] = useState<string>('auto')
   const dispatch = useAppDispatch()
-
-  // const Push = PusPopuphHoc()
-  const [statePush, setStatePush] = useState<number>(0)
-  
-  useEffect(()=> {
-    setStatePush(0)
-  }, [showForm])
   
 
   const sendForm = (

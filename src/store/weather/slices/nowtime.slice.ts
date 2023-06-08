@@ -2,12 +2,11 @@ import { createSlice } from "@reduxjs/toolkit";
 import { Nowtime } from "src/types/weather/nowtime";
 import { nowtimeAction } from "../actions/nowtime.action";
 
-
-
 type InitialState = {
   "main": Nowtime;
   "loading"?: boolean;
 };
+
 
 export const initialStateNT: InitialState = {
   "main": {

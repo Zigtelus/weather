@@ -1,4 +1,4 @@
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
 import { Article } from "src/types/articles/articles";
 import { articleAction } from "../actions/article.action";
 

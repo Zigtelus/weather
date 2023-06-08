@@ -5,10 +5,6 @@ type Props = {
   componentt: ReactNode;
 };
 
-const ScrollBarBaseStyle = {
-  width: '100%'
-}
-
 const ScrollBarHOK = ()=> {
 
 

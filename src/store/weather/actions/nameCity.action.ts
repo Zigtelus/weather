@@ -1,6 +1,5 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import { createAPI, dataUser, KEY } from "../createApi";
-import { initialStateNC } from "../slices/nameCity.slice";
 
 
 

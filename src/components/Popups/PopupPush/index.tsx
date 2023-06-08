@@ -7,7 +7,6 @@ import { addText } from "src/store/pushMessage/pushMessage.slice";
 
 function Popups():JSX.Element {
 
-  const text = useAppSelector(item => item.pushMessageReducer.messages)
   const text1 = useAppSelector(item => item.pushMessageReducer.messages.text1)
   const text2 = useAppSelector(item => item.pushMessageReducer.messages.text2)
   const text3 = useAppSelector(item => item.pushMessageReducer.messages.text3)

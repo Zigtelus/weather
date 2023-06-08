@@ -3,8 +3,6 @@ import Articles from './Articles';
 import { useAppSelector } from 'src/hooks/redux';
 import MadeArticle from './MadeArticle';
 import { MutableRefObject, useRef, useState } from 'react';
-import { useLocation } from 'react-router-dom';
-import ButtonHoc from 'src/hocs/button';
 
 
 
@@ -18,10 +16,6 @@ function Blog(): JSX.Element {
   const heightForm = !!formRef.current && formRef.current.offsetHeight
 
   const [statusButton, setStatusButton] = useState<boolean>(false);
-
-  // if ((!!user && !user.role) || !user) return <></>;
-
-  const Btn = ButtonHoc()
     
 
   return <div className='blog'>

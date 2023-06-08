@@ -1,5 +1,5 @@
 import './index.scss';
-import { MouseEvent, useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useAppDispatch, useAppSelector } from "src/hooks/redux";
 import { articlesAction } from "src/store/articles/actions/articles.action";
 import { NavLink } from 'react-router-dom';
@@ -19,31 +19,10 @@ function Articles(): JSX.Element {
 
   useEffect(()=> {
     dispatch(articlesAction(''))
-  },[0]);
+  },[0]); //@typescript-eslint/no-unused-vars
   
 
   const adminOrNot = user?.role === 'admin'
-
-
-  function fetchSend(URL: string, body: any) {
-    return fetch(URL, {
-      method: 'PATCH',
-      body: JSON.stringify({
-        likes: body.likes,
-        dislikes: body.dislikes,
-        views: body.views,
-      }),
-      headers: {
-        'Content-type': 'application/json; charset=UTF-8',
-      },
-    })
-  }
-
-
-  const deleteArticle =()=> {
-    // dispatch(removeArticle(selection))
-  }
-
 
 
 

@@ -28,7 +28,7 @@ function transliteral (word: string) {
   };
 
   for (var i = 0; i < word.length; ++i ) {
-    if ((converter[word[i]] ) == undefined){
+    if ((converter[word[i]] ) === undefined){
       answer += word[i];
     } else {
       answer += converter[word[i]];

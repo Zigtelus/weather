@@ -1,8 +1,5 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { useAppSelector } from "src/hooks/redux";
-import { Nowtime } from "src/types/weather/nowtime";
 import { createAPI, dataUser, KEY } from "../createApi";
-import { initialStateNT } from "../slices/nowtime.slice";
 
 
 const api = createAPI();

@@ -54,11 +54,6 @@
 
     transition: width 0.3s, height 0.2s;
     height: 0px;
-    // padding-top: 0px;
-    // padding-bottom: 0px;
-    // padding-top: 23px;
-    // padding-bottom: 15px;
-    // animation: 3s slideisssn;
     overflow: hidden;
     padding-left: 0;
 
@@ -85,18 +80,6 @@
       }
     }
   }
-  // @keyframes slideisssn {
-  //   0% { 
-  //     height: 0px;
-  //     padding-top: 0px;
-  //     padding-bottom: 0px;
-  //   }
-  //   100% { 
-  //     height: initial;
-  //     padding-top: 23px;
-  //     padding-bottom: 15px;
-  //   }
-  // }
 
   .listCitysActive {
     top: 70px;
@@ -129,24 +112,6 @@
 
       }
     }
-
-    // &::before {
-    //   transition: 0.3s;
-    //   content: '';
-    //   width: 100%;
-    //   top: 0;
-    //   height: 23px;
-    //   background-color: rgb(39 39 39 / 90%);
-    // }
-
-    // &::after {
-    //   transition: 0.3s;
-    //   content: '';
-    //   width: 100%;
-    //   bottom: 0;
-    //   height: 15px;
-    //   background-color: rgb(39 39 39 / 90%);
-    // }
   }
   
 }
@@ -161,8 +126,6 @@
 
 
     .input {
-      // padding: 0 16px 0 61px;
-      // width: calc(100% - 16px - 61px);
       border-radius: 8px;
 
       &__active {
@@ -172,7 +135,6 @@
 
     .listCitys {
       width: 100%;
-      // min-height: 104.5px;
       min-height: 0px;
       max-height: calc(100vh - 230px);
       overflow: scroll;

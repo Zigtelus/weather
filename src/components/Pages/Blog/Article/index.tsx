@@ -10,7 +10,6 @@ import { articleAction } from 'src/store/articles/actions/article.action';
 import ReactGA from 'react-ga';
 import { sendTextForPush } from 'src/helpers/sendPushMessage';
 import inputHoc from 'src/hocs/inputs/inputHoc';
-import TxtareaHoc from 'src/hocs/txtarea';
 import { addComment } from 'src/store/comments/slices/comments.slice';
 
 
@@ -29,7 +28,6 @@ function Article(): JSX.Element {
   const imgRef = useRef() as MutableRefObject<HTMLImageElement>;
 
   const textRef = useRef() as MutableRefObject<HTMLTextAreaElement>;
-  const [refreashPlace, setRefreshPlace] = useState(0)
 
   const [textHeight, setTextHeight] = useState<string>('auto')
 
@@ -58,11 +56,6 @@ function Article(): JSX.Element {
     // articleLinks.articleId = id
   }
 
-  const cleanTextarea =()=> {
-    textRef.current.value = ''
-    setRefreshPlace(refreashPlace +1)
-  }
-
   
   useEffect(()=> {
     if (!!id) {
@@ -72,7 +65,7 @@ function Article(): JSX.Element {
 
     ReactGA.pageview('https://zigtelus.github.io/weather/')
 
-  },[id])
+  },[id]) //@typescript-eslint/no-unused-vars
 
 
 

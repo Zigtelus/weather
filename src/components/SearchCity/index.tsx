@@ -10,7 +10,6 @@ import transliteral from "src/helpers/transliteration";
 import { NavLink } from "react-router-dom";
 import { sendTextForPush } from "src/helpers/sendPushMessage";
 import { cities, citysEN } from "./cities";
-import { ScrollBarHOK } from "src/hocs/scrollBar/index.hoc";
 
 
 type DataUser = {
@@ -26,10 +25,7 @@ function SearchCity(): JSX.Element {
   const dispatch = useAppDispatch();
   const nowtimeWeatherReducer = useAppSelector(item => item.nowtimeWeatherReducer);
   const loading = useAppSelector(item => item.fiveDaysWeatherReducer.loading);
-  // const PushMeassage = PusPopuphHoc();
   const [nameCountry, setNameCountry] = useState<string>('us');
-
-  const ScrollBar = ScrollBarHOK()
 
   useEffect(()=> {
     !!nowtimeWeatherReducer.main.sys.country ? 
@@ -80,12 +76,6 @@ function SearchCity(): JSX.Element {
   const timeout = useTimeout(200);
   const refreshPage = () => setCountry(country+1);
   const listCitysHandler = () => timeout(refreshPage);
-  // const listCitysHandler = () => {
-  //   !loading &&
-  //   inputEl.current && 
-  //   !searchCitys().length &&
-  //   dispatch(addText(`город начинающийся с ${inputEl.current.value.toUpperCase()} не найден`))
-  // }
 
   
 
@@ -103,18 +93,6 @@ function SearchCity(): JSX.Element {
     !!searchCitys().length ? searchCitys().length : 1
   )
 
-
-
-  // useEffect(()=> {
-  //   !loading &&
-  //   inputEl.current && 
-  //   !searchCitys().length &&
-  //   dispatch(addText(`город начинающийся с ${inputEl.current.value.toUpperCase()} не найден`))
-  // }, [!!inputEl.current && inputEl.current.value])
-
-  // const [arrayPush, setArrayPush] = useState<string[]>([])
-
-  // const arrayPush = useAppSelector(item => item.pushMessageReducer)
 
   const numberPush = useAppSelector(state => state.pushMessageReducer.numberPush)
   const textForPush = (text: string, isNumber: number) => {
@@ -157,15 +135,6 @@ function SearchCity(): JSX.Element {
       <span>
         search for cities in the zone
       </span>
-      {/* <button
-        style={{
-          cursor: 'pointer',
-          width: '80px',
-          height: '30px',
-          margin: '10px 0'
-        }}
-        onClick={()=> setNameCountry('kz')}
-      >KZ</button> */}
     </div>
 
     <div 
@@ -185,14 +154,6 @@ function SearchCity(): JSX.Element {
             listCitysHandler()
             textForPush(`City starting with '${e.target.value.toUpperCase()}' not found`, numberPush)
           } else {
-            // console.log('1111')
-            // dispatch(addText.changeNumberPush(numberPush))
-            // sendTextForPush(`we don't have weather data in observation area '${nameCountry}'`, numberPush, dispatch)
-            
-            // dispatch(addText.changeNumberPush(numberPush))
-            // textForPush(`we don't have weather data in observation area '${nameCountry}'`, numberPush)
-            // setNameCountry('us')
-
             sendTextForPush(`We do not have a list of cities in the zone '${nameCountry}', but we have in the "us" zone `, numberPush, dispatch)
             setNameCountry('us')
           }

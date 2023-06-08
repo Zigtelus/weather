@@ -1,5 +1,5 @@
 import style from './index.module.scss';
-import { MouseEvent, MutableRefObject, ReactNode } from "react";
+import { MouseEvent, MutableRefObject } from "react";
 
 
 

@@ -1,5 +1,4 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { sunriseSunset } from "src/helpers/sunriseSunset";
 import { timeZone } from "src/helpers/timeZone";
 import { FiveDays } from "src/types/weather/fiveDays";
 import { fiveDaysAction } from "../actions/fiveDays.action";
