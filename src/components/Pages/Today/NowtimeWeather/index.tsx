@@ -13,12 +13,8 @@ import ItemsDay from '../ItemsDay';
 import LoadingAnimation from 'src/helpers/LoadingAnimation';
 import { useParams } from 'react-router-dom';
 import { getLoading } from 'src/store/weather/slices/fiveDays.slice';
-import PusPopuphHoc from 'src/hocs/PopupPush';
 import { sunriseSunset } from 'src/helpers/sunriseSunset';
 import { addText } from 'src/store/pushMessage/pushMessage.slice';
-import { PictureWeatherSmall } from '../PictureWeatherSmall';
-import { ExampleAllWeatherIcons } from './ExampleAllWeatherIcons';
-// import { Button } from '../ItemsDay/button';
 
 
 
@@ -124,7 +120,7 @@ function NowtimeWeather(): JSX.Element {
             </span>
             
             <div>
-              рассвет {times.sunrise} - закат {times.sunset}
+              sunrise {times.sunrise} - sunset {times.sunset}
             </div>
             
             <div style={{width:"100%"}}>

@@ -85,7 +85,6 @@ function Article(): JSX.Element {
     const formData: FormData = new FormData(formCurrent)
 
     sendAxios(URL, user, formData)
-    // .then(data => dispatch(addComment([data.data, ...comments1.comments])))
     .then((req)=> {
       if (!!req.data) {
 
@@ -94,7 +93,6 @@ function Article(): JSX.Element {
         !!id && dispatch(commentsAction(id))
       }
     })
-    // .then(data => console.log(data.data))
   }
 
   async function sendAxios(
