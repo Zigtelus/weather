@@ -213,7 +213,7 @@ function SearchCity(): JSX.Element {
           ${s.listCitys}
           ${lengthCitiesCheck && s.listCitysActive}
         `}
-        style={{height: lengthCitiesCheck ? `${(38+ numberRowsForCities * 35)}px` : `${0}px`}}
+        style={{height: lengthCitiesCheck ? `${(50 + numberRowsForCities * (34 + 5))}px` : `${0}px`}}
      >
       
       <ul 
