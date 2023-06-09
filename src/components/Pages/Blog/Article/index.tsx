@@ -64,8 +64,9 @@ function Article(): JSX.Element {
     }
 
     ReactGA.pageview('https://zigtelus.github.io/weather/')
-
-  },[id]) //@typescript-eslint/no-unused-vars
+    
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  },[id])
 
 
 

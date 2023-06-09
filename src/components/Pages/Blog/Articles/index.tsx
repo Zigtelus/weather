@@ -19,7 +19,9 @@ function Articles(): JSX.Element {
 
   useEffect(()=> {
     dispatch(articlesAction(''))
-  },[0]); //@typescript-eslint/no-unused-vars
+
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  },[0]);
   
 
   const adminOrNot = user?.role === 'admin'

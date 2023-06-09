@@ -31,6 +31,8 @@ function SearchCity(): JSX.Element {
     !!nowtimeWeatherReducer.main.sys.country ? 
     setNameCountry(nowtimeWeatherReducer.main.sys.country.toLowerCase()) :
     setNameCountry('us');
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [!!nowtimeWeatherReducer.main.sys && nowtimeWeatherReducer.main.sys.country]);
 
   const [country, setCountry] = useState<number>(0);

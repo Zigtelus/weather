@@ -47,8 +47,6 @@ function NowtimeWeather(): JSX.Element {
   const times = sunriseSunset(city.sunrise, city.sunset, city.timezone, weatherNow.dt);
   const addNight = times.timesOfDay === 'light';
 
-
-  const [instruction, setInstruction] = useState<boolean>(false);
   const [country, setCountry] = useState<number>(0);
   const dispatch = useAppDispatch();
 
@@ -75,7 +73,8 @@ function NowtimeWeather(): JSX.Element {
     dispatch(getLoading(true));
     !!id ? thisError() :
     navigator.geolocation.getCurrentPosition(thisPosition, thisError);
-
+    
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [0]);
 
 

@@ -100,7 +100,7 @@ function MadeArticle({idUser, userName, roleUser, showForm, formRef}: Props): JS
           accept="image/*"
           onChange={(e: any)=> {
             if (!!fileRef.current.files) {
-              const file = fileRef.current.files[0]
+              // const file = fileRef.current.files[0]
             }
           }}
           disabled={!adminOrNot}

@@ -1,5 +1,5 @@
 import './index.scss';
-import { MouseEvent, MutableRefObject, useEffect, useRef, useState } from "react";
+import { MouseEvent, MutableRefObject, useRef, useState } from "react";
 import LoadingAnimation from "src/helpers/LoadingAnimation";
 import inputHoc from "src/hocs/inputs/inputHoc";
 import PopupHoc from "src/hocs/popup";
@@ -120,7 +120,7 @@ export default function PopupSignUp({closeOpen}: {closeOpen: ()=> void}): JSX.El
 
     const fromDoge = email.slice(indexDoge+1, email.length);
     const indexDote = fromDoge.indexOf('.');
-    if (indexDote <= 0 || indexDote == fromDoge.length-1 ) return '';
+    if (indexDote <= 0 || indexDote === fromDoge.length-1 ) return '';
 
     const fromDoteSecond = fromDoge.slice(indexDote+1, fromDoge.length);
     const indexDoteSecond = fromDoteSecond.indexOf('.');
