@@ -105,48 +105,48 @@ function Article(): JSX.Element {
 
 
 
-  function PreventDefault(
-    e: MouseEvent<HTMLDivElement>, articleId: string, likeDislike: string, userId: string
-  ) {
-    e.preventDefault()
+  // function PreventDefault(
+  //   e: MouseEvent<HTMLDivElement>, articleId: string, likeDislike: string, userId: string
+  // ) {
+  //   e.preventDefault()
 
-    const form = {
-      likes: [
-      ],
-      dislikes: [
-      ],
-      views: [
-        userId
-      ]
-    } as {likes: string[], dislikes: string[], views: string[]}
+  //   const form = {
+  //     likes: [
+  //     ],
+  //     dislikes: [
+  //     ],
+  //     views: [
+  //       userId
+  //     ]
+  //   } as {likes: string[], dislikes: string[], views: string[]}
 
-    const form1 = {...form}
+  //   const form1 = {...form}
 
-    const URL = `https://weather-back-deploy.herokuapp.com/main/api/article/${articleId}/statisctics`;
+  //   const URL = `https://weather-back-deploy.herokuapp.com/main/api/article/${articleId}/statisctics`;
 
 
-    likeDislike === 'likes' && form1.likes.push(userId)
-    likeDislike === 'dislikes' && form1.dislikes.push(userId)
+  //   likeDislike === 'likes' && form1.likes.push(userId)
+  //   likeDislike === 'dislikes' && form1.dislikes.push(userId)
 
     
-    fetchSend(URL, form1)
-    .then((response) => response.json())
-    .then((json) => json);
-  }
+  //   fetchSend(URL, form1)
+  //   .then((response) => response.json())
+  //   .then((json) => json);
+  // }
 
-  function fetchSend(URL: string, body: any) {
-    return fetch(URL, {
-      method: 'PATCH',
-      body: JSON.stringify({
-        likes: body.likes,
-        dislikes: body.dislikes,
-        views: body.views,
-      }),
-      headers: {
-        'Content-type': 'application/json; charset=UTF-8',
-      },
-    })
-  }
+  // function fetchSend(URL: string, body: any) {
+  //   return fetch(URL, {
+  //     method: 'PATCH',
+  //     body: JSON.stringify({
+  //       likes: body.likes,
+  //       dislikes: body.dislikes,
+  //       views: body.views,
+  //     }),
+  //     headers: {
+  //       'Content-type': 'application/json; charset=UTF-8',
+  //     },
+  //   })
+  // }
 
 
 
