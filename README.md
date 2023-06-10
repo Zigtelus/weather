@@ -1,5 +1,11 @@
 # weather
 
+Как запустить проект на локальной машине:
+1) git clone https://github.com/Zigtelus/weather.git
+2) git checkout #8_fix
+3) npm i
+4) npm run start
+
 
 Какие технологии были применины на FRONT-END:
 1) React
