@@ -6,7 +6,6 @@ import ReactGA from 'react-ga';
 import Popups from './components/Popups/PopupPush';
 
 
-
 const TRACKING_GA = "UA-254825603-1"
 ReactGA.initialize(TRACKING_GA)
 

@@ -19,7 +19,7 @@ function Pop({list}: Rain): JSX.Element {
   const items = <div className={'pop__items'}>
   {
     list
-    .filter((item, index) => (1 < index && index < 11))
+    .filter((item, index) => (0 <= index && index < 8))
     .map((item)=> {
       return <div className={'pop__item'} key={item.dt}>
         <span>вероятность {item.pop}%</span>

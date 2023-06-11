@@ -4,12 +4,10 @@ import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
 import App from './App';
 import { setupStore } from './store/store';
+
 const container = document.getElementById('root')!;
 const root = createRoot(container);
-
 const store = setupStore()
-
-//HashRouter
 
 root.render(
   <React.StrictMode>

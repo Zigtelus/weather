@@ -43,7 +43,7 @@ function ItemsDay({fiveDaysWeather}: {fiveDaysWeather: FiveDays}): JSX.Element {
 
       {
         listFiveDays
-        .filter((item, index) => (0 < index && index < 9))
+        .filter((item, index) => (0 <= index && index < 8))
         .map((item, index) => {
       
           let tempIt = converTemp(item.main.temp, 'kelvin')

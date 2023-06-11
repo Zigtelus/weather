@@ -17,7 +17,7 @@ function Wind({list}: Props): JSX.Element {
   const items = <div className={'wind__items'}>
     {
       list
-      .filter((item, index)=> (1 < index && index < 11))
+      .filter((item, index)=> (0 <= index && index < 8))
       .map((item) => <div className={'wind__item'} key={item.dt}>
         <span>
           направление ветра
