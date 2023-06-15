@@ -1,0 +1,74 @@
+
+.popup_bg__signUp {
+  .popup__signUp {
+    max-width: 300px;
+    border-radius: 13px;
+    box-shadow: 0px 0px 13px -2px rgb(255 255 255);
+  }
+}
+
+.popup_sign_up {
+
+  &__body {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  &__title {
+    width: 100%;
+    text-align: center;
+  }
+
+  &__write_places {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    input {
+      margin: 7px 0;
+      width: 100%;
+    }
+  }
+
+  &__btn {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+  }
+
+}
+
+
+
+@media only screen and (max-width: 944px)  {
+
+  .popup_sign_up__write_places {
+
+    input {
+      padding: 8px 10px;
+    }
+
+  }
+}
+
+
+
+@media only screen and (max-width: 944px)  {
+
+  .popup_sign_up {
+
+
+    &__write_places {
+      justify-content: center;
+
+      input {
+        min-width: 250px;
+      }
+    }
+  }
+
+}

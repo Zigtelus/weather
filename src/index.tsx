@@ -7,7 +7,6 @@ import { setupStore } from './store/store';
 
 const container = document.getElementById('root')!;
 const root = createRoot(container);
-
 const store = setupStore()
 
 root.render(

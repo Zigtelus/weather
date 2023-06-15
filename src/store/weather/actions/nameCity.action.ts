@@ -15,6 +15,10 @@ export const nameCityAction = createAsyncThunk(
 
         // realy
         const secondPartURL = `/geo/1.0/reverse?lat=${dataUser.lat}&lon=${dataUser.lon}&appid=${KEY}`;
+
+        //washington
+        // const secondPartURL = `/geo/1.0/reverse?lat=38.87729&lon=-77.05274&appid=${KEY}`;
+
          
         // const secondPartURL = `/geo/1.0/reverse?lat=55.7522200&lon=37.6155600&appid=94d073c2667e3ab1d500b71c487bdf7c`;
 
@@ -24,15 +28,14 @@ export const nameCityAction = createAsyncThunk(
         // moscow
         // const secondPartURL = `/geo/1.0/reverse?lat=55.7522200&lon=37.6155600&appid=94d073c2667e3ab1d500b71c487bdf7c`;
 
-        console.log('nameCityAction');
-        console.log(secondPartURL);
+        console.log('nameCityAction ', secondPartURL)
 
         try {
             const res = await api.get<string>(`${secondPartURL}`);
             return res.data;
         } catch (e) {
-            console.log('nameCityAction');
-            console.log('error');
+            console.log('initialStateNC')
+            // return initialStateNC;
         };
         
     }

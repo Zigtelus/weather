@@ -2,13 +2,13 @@ import { createSlice } from "@reduxjs/toolkit";
 import { Nowtime } from "src/types/weather/nowtime";
 import { nowtimeAction } from "../actions/nowtime.action";
 
-
-
 type InitialState = {
-  "main": Nowtime
+  "main": Nowtime;
+  "loading"?: boolean;
 };
 
-const initialState: InitialState = {
+
+export const initialStateNT: InitialState = {
   "main": {
     "coord": {
     "lon": 0,
@@ -54,13 +54,14 @@ const initialState: InitialState = {
     "id": 0,
     "name": "",
     "cod": 0,
-  }
+  },
+  "loading": false,
 };
 
 
 export const nowtimeSlice = createSlice({
   name: 'nowtime',
-  initialState,
+  initialState: initialStateNT,
   reducers: {
     numberPlus(state, action) {
       /*
@@ -71,9 +72,13 @@ export const nowtimeSlice = createSlice({
   extraReducers: {
     [nowtimeAction.fulfilled.type]: (state, action) => {
       state.main = {...action.payload};
+      state.loading = false;
     },
-    [nowtimeAction.pending.type]: (state, action) => {},
-    [nowtimeAction.rejected.type]: (state, action) => console.log('error')
+    [nowtimeAction.pending.type]: (state, action) => {
+      state.loading = true;
+    },
+    [nowtimeAction.rejected.type]: (state, action) => {
+    }
   }
 });
 

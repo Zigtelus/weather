@@ -1,0 +1,17 @@
+.article__comment {
+  background-color: aquamarine;
+  margin: 15px 0;
+  padding: 10px;
+  border-radius: 6px;
+  color: black;
+
+  &__top {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__body {
+    margin: 10px 0;
+    display: block;
+  }
+}
