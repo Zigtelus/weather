@@ -75,8 +75,7 @@ function NowtimeWeather(): JSX.Element {
     navigator.geolocation.getCurrentPosition(thisPosition, thisError);
     
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [0]);
-
+  }, [id]);
 
   return (
     <main className="main weather_main">

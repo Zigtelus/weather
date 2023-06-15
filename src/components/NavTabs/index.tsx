@@ -2,10 +2,14 @@
 import s from './navtabs.module.scss'
 import { useEffect, useRef, useState } from 'react'
 import Links from './Links';
+import { useLocation } from 'react-router-dom';
 
 function NavTabs(): JSX.Element {
 
-  const location = window.location;
+  const location = useLocation();
+
+  // получить ссылку на страницу (blog или weather)
+  const path = location.pathname.split("/")[1];
 
   const [tab, setTab] = useState<number>(0);
   const [findPlaceLine, setFindPlaceLine] = useState<string[]>([]);
@@ -41,12 +45,12 @@ function NavTabs(): JSX.Element {
     
     let i = -1
     while ( i++ < Object.keys(days).length -1) {
-      Object.keys(days)[i] === location.pathname.split('/')[1] &&
+      Object.keys(days)[i] === path &&
       setTab(Number(i))
     }
     
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  },[location.href])
+  },[path])
 
   return (
     <div

@@ -12,6 +12,8 @@ ReactGA.initialize(TRACKING_GA)
 
 function App() {
 
+  console.log('11')
+
   return (
     <div className='App' >
       <Navigation />
