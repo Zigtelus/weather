@@ -1,0 +1,18 @@
+.blog {
+  margin: 0 auto;
+  
+  &__contain_form {
+    overflow: hidden;
+    transition: height 500ms ease;
+    height: 0px;
+  }
+}
+
+
+@media only screen and (max-width: 820px)  {
+
+  .blog {
+    width: calc(100% - 30px);
+  }
+
+}

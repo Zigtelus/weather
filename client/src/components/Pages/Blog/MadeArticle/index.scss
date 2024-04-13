@@ -1,0 +1,137 @@
+
+.new_article--notActive {
+  // opacity: 0.5;
+  cursor: not-allowed;
+  
+  input,
+  textarea {
+    cursor: not-allowed;
+    caret-color: transparent;
+  }
+
+  .new_article__file {
+    label[for=file] {
+      cursor: not-allowed;
+      span:nth-of-type(1) {
+        background-color: rgb(239 239 239 / 39%);
+        border: solid 1px #0000005c;
+        color: #00000040;
+  
+        &:active {
+          background-color: rgb(239 239 239 / 32%);
+          border: solid 1px #0000005c;
+        }
+      }
+      span:nth-of-type(2) {
+        color:  #ffffffb5;
+      }
+    }
+  }
+
+}
+
+.new_article--active {
+}
+
+.new_article {
+  padding: 20px;
+  background-color: #453f4a;
+
+
+  fieldset {
+    border: none;
+    margin: 20px 0px;
+  }
+
+  input,
+  textarea {
+    background-color: #554e5a;
+    border: none;
+    width: 100%;
+    resize: none;
+
+    font-size: 18px;
+    overflow: hidden;
+    color: rgba(255, 255, 255, 0.738);
+    padding: 20px;
+  }
+
+  &__file {
+    input[type=file] {
+      display: none;
+    }
+
+    label[for=file] {
+      cursor: pointer;
+      background-color: #554e5a;
+      padding: 4px 8px;
+      color: black;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+
+      padding: 20px 18px;
+
+      span {
+        font-weight: 600;
+        font-size: 17.5px;
+      }
+
+
+      span:nth-of-type(1) {
+        display: block;
+        margin-right: 5px;
+        padding: 2px 6px;
+        border-radius: 3px;
+        background-color: #efefef;
+        border: solid 1px #efefef;
+        color: black;
+
+        &:active {
+          background-color: white;
+          border: solid 1px gray;
+        }
+      }
+
+      span:nth-of-type(2) {
+        color:  white;
+      }
+      // position: absolute;
+      // left: 0;
+      // top: 0;
+    }
+  }
+
+
+  fieldset:first-of-type input {
+    font-size: 23px;
+    border-radius: 15px 15px 0  0;
+  }
+
+  fieldset:last-of-type textarea {
+    border-radius: 0  0 15px 15px;
+  }
+
+  label {
+  }
+
+  &__title {
+
+  }
+
+}
+
+
+@media only screen and (max-width: 820px)  {
+
+  .new_article {
+    padding: 20px 0;
+    
+    .new_article__submit {
+      display: block;
+      margin: 0 auto;
+      width: 96.42%;
+    }
+  }
+
+}
