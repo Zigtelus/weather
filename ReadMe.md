@@ -60,7 +60,7 @@
 
 
 ## <span style="color:white; background-color:red;">Как запустить проект</span> 
-<font color="red">Как запустить проект</font>
+<span color="red">Как запустить проект</span>
 Запустить проект возможно двумя способами, но проще всего будет через докер;
 
 ### Через npm
