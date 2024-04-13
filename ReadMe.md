@@ -66,9 +66,11 @@
 
 ### Через npm
 1) Откройте термин на одном уровне с директориями server и client;
-2) npm --prefix ./client run start;
-3) npm --prefix ./server run start;
-4) Открываем проект по ссылке [ссылка на страницу с запущенным проектом](http://localhost:8080/weather);
+2) npm --prefix ./client install;
+3) npm --prefix ./client run start;
+4) npm --prefix ./server install;
+5) npm --prefix ./server run start;
+6) Открываем проект по ссылке [ссылка на страницу с запущенным проектом](http://localhost:8080/weather);
 
 
 ### Через Докер
