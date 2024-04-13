@@ -1,0 +1,14 @@
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /public_html
+  RewriteRule ^index\.html$ - [L]
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteCond %{REQUEST_FILENAME} !-l
+  RewriteRule . /index.html [L]
+</IfModule>
+
+PassengerNodejs /home/c/c96616a9/.local/bin/node
+PassengerAppRoot /home/c/c96616a9/weather-gts.ru/server
+PassengerAppType node
+PassengerStartupFile ../server/main.js
