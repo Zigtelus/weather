@@ -46,9 +46,9 @@ let ArticleService = class ArticleService {
         return this.articleRepository.removeArticle(articleId, userId);
     }
 };
-ArticleService = __decorate([
+exports.ArticleService = ArticleService;
+exports.ArticleService = ArticleService = __decorate([
     (0, common_1.Injectable)(),
     __metadata("design:paramtypes", [article_repository_1.ArticleRepository])
 ], ArticleService);
-exports.ArticleService = ArticleService;
 //# sourceMappingURL=article.service.js.map

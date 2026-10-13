@@ -13,9 +13,9 @@ exports.CreateReportDto = void 0;
 const mongoose_1 = require("@nestjs/mongoose");
 class CreateReportDto {
 }
+exports.CreateReportDto = CreateReportDto;
 __decorate([
     (0, mongoose_1.Prop)({ required: true, unique: true }),
     __metadata("design:type", String)
 ], CreateReportDto.prototype, "email", void 0);
-exports.CreateReportDto = CreateReportDto;
 //# sourceMappingURL=create-user.dto.js.map

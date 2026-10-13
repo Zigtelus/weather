@@ -15,7 +15,8 @@ const article_module_1 = require("./article/article.module");
 const comments_article_module_1 = require("./comments-article/comments-article.module");
 let AppModule = class AppModule {
 };
-AppModule = __decorate([
+exports.AppModule = AppModule;
+exports.AppModule = AppModule = __decorate([
     (0, common_1.Module)({
         imports: [
             user_module_1.UserModule,
@@ -28,11 +29,10 @@ AppModule = __decorate([
                 ],
                 isGlobal: true
             }),
-            mongoose_1.MongooseModule.forRoot(`mongodb+srv://${process.env.LOGIN}:${process.env.PASSWORD}@weathercluster.ovjghpi.mongodb.net/`)
+            mongoose_1.MongooseModule.forRoot(`mongodb+srv://${process.env.LOGIN}:${process.env.PASSWORD}@weathercluster.ovjghpi.mongodb.net/weather?retryWrites=true&w=majority`)
         ],
         controllers: [],
         providers: [],
     })
 ], AppModule);
-exports.AppModule = AppModule;
 //# sourceMappingURL=app.module.js.map

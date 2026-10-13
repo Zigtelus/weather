@@ -13,6 +13,7 @@ exports.StatisticsArticleSchema = exports.StatisticsArticle = void 0;
 const mongoose_1 = require("@nestjs/mongoose");
 let StatisticsArticle = class StatisticsArticle {
 };
+exports.StatisticsArticle = StatisticsArticle;
 __decorate([
     (0, mongoose_1.Prop)({ required: true }),
     __metadata("design:type", Number)
@@ -21,9 +22,8 @@ __decorate([
     (0, mongoose_1.Prop)({ required: true }),
     __metadata("design:type", String)
 ], StatisticsArticle.prototype, "data", void 0);
-StatisticsArticle = __decorate([
+exports.StatisticsArticle = StatisticsArticle = __decorate([
     (0, mongoose_1.Schema)({ _id: false })
 ], StatisticsArticle);
-exports.StatisticsArticle = StatisticsArticle;
 exports.StatisticsArticleSchema = mongoose_1.SchemaFactory.createForClass(StatisticsArticle);
 //# sourceMappingURL=date-publication.schema.js.map

@@ -15,7 +15,8 @@ const user_schema_1 = require("./schemas/user.schema");
 const user_repository_1 = require("./user.repository");
 let UserModule = class UserModule {
 };
-UserModule = __decorate([
+exports.UserModule = UserModule;
+exports.UserModule = UserModule = __decorate([
     (0, common_1.Module)({
         providers: [user_service_1.UserService, user_repository_1.UserRepository],
         controllers: [user_controller_1.UserController],
@@ -24,5 +25,4 @@ UserModule = __decorate([
         ]
     })
 ], UserModule);
-exports.UserModule = UserModule;
 //# sourceMappingURL=user.module.js.map

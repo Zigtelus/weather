@@ -16,7 +16,8 @@ const platform_express_1 = require("@nestjs/platform-express");
 const article_schema_1 = require("./schemas/article.schema");
 let ArticleModule = class ArticleModule {
 };
-ArticleModule = __decorate([
+exports.ArticleModule = ArticleModule;
+exports.ArticleModule = ArticleModule = __decorate([
     (0, common_1.Module)({
         providers: [
             article_service_1.ArticleService,
@@ -31,5 +32,4 @@ ArticleModule = __decorate([
         ]
     })
 ], ArticleModule);
-exports.ArticleModule = ArticleModule;
 //# sourceMappingURL=article.module.js.map

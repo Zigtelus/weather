@@ -33,7 +33,8 @@ export class CommentsArticleRepository {
 
       return await new this.commentsArticlModel(createComments).save()
     } catch (error) {
-      return 'error message: ' + error.message
+      return 'error message: ' + error
+      // return 'error message: ' + error.message
     }
 
   }
@@ -57,7 +58,8 @@ export class CommentsArticleRepository {
       return newComment
 
     } catch (error) {
-      return 'error message: ' + error.message
+      return 'error message: ' + error
+      // return 'error message: ' + error.message
     }
 
   }
@@ -96,7 +98,8 @@ export class CommentsArticleRepository {
       })
       updateComments = await this.commentsArticlModel.findOneAndUpdate({articleId}, {comments: findComment})
     } catch (error) {
-      return 'error message: ' + error.message
+      return 'error message: ' + error
+      // return 'error message: ' + error.message
     }
     
     return updateComments
@@ -110,9 +113,10 @@ export class CommentsArticleRepository {
     try {
       const findComments = await this.commentsArticlModel.findOne({articleId})
       if (findComments == null) return 'this object was not found';
-      await this.commentsArticlModel.findOneAndRemove({articleId})
+      await this.commentsArticlModel.findOneAndDelete({articleId})
     } catch(error) {
-      return 'error message: ' + error.message
+      return 'error message: ' + error
+      // return 'error message: ' + error.message
     }
 
     return 'all the comments has been removed'
@@ -131,7 +135,8 @@ export class CommentsArticleRepository {
       const removeComment = findArticle.comments.filter(item => item.commentId !== commentId)
       const remakeArticle = await this.commentsArticlModel.findOneAndUpdate({articleId}, {comments: [...removeComment]}) 
     } catch (error) {
-      return 'error message: ' + error.message
+      return 'error message: ' + error
+      // return 'error message: ' + error.message
     }
 
     return {articleId: articleId}

@@ -14,6 +14,7 @@ const mongoose_1 = require("@nestjs/mongoose");
 const comment_article_schema_1 = require("./comment-article.schema");
 let CommentsArticle = class CommentsArticle {
 };
+exports.CommentsArticle = CommentsArticle;
 __decorate([
     (0, mongoose_1.Prop)({ required: true }),
     __metadata("design:type", String)
@@ -26,9 +27,8 @@ __decorate([
     (0, mongoose_1.Prop)({ required: true, type: [comment_article_schema_1.CommentArticleSchema] }),
     __metadata("design:type", Array)
 ], CommentsArticle.prototype, "comments", void 0);
-CommentsArticle = __decorate([
+exports.CommentsArticle = CommentsArticle = __decorate([
     (0, mongoose_1.Schema)()
 ], CommentsArticle);
-exports.CommentsArticle = CommentsArticle;
 exports.CommentsArticleSchema = mongoose_1.SchemaFactory.createForClass(CommentsArticle);
 //# sourceMappingURL=comments-article.schema.js.map

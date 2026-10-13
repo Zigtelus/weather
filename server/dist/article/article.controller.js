@@ -65,6 +65,7 @@ let ArticleController = class ArticleController {
         return this.articleService.removeArticle(articleId, userId);
     }
 };
+exports.ArticleController = ArticleController;
 __decorate([
     (0, common_1.Get)(),
     __metadata("design:type", Function),
@@ -142,9 +143,8 @@ __decorate([
     __metadata("design:paramtypes", [String, String]),
     __metadata("design:returntype", Promise)
 ], ArticleController.prototype, "removeArticle", null);
-ArticleController = __decorate([
+exports.ArticleController = ArticleController = __decorate([
     (0, common_1.Controller)(`${routes_1.routes.article}`),
     __metadata("design:paramtypes", [article_service_1.ArticleService])
 ], ArticleController);
-exports.ArticleController = ArticleController;
 //# sourceMappingURL=article.controller.js.map

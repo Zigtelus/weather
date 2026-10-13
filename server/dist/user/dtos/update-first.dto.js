@@ -13,9 +13,9 @@ exports.UpdateReportDto = void 0;
 const mongoose_1 = require("@nestjs/mongoose");
 class UpdateReportDto {
 }
+exports.UpdateReportDto = UpdateReportDto;
 __decorate([
     (0, mongoose_1.Prop)({ required: true, unique: true }),
     __metadata("design:type", String)
 ], UpdateReportDto.prototype, "email", void 0);
-exports.UpdateReportDto = UpdateReportDto;
 //# sourceMappingURL=update-first.dto.js.map

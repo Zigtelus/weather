@@ -1,5 +1,5 @@
 import { Body, Controller, Delete, Get, Ip, Param, Patch, Post, Req, Res, UploadedFile, UseInterceptors } from '@nestjs/common';
-import { Response } from 'node_modules/@types/express';
+import { Response } from 'express';
 import { FilterQuery, Model } from 'mongoose';
 import path, { basename, dirname, extname, join } from 'path';
 import { routes } from '../routes/routes';

@@ -46,6 +46,7 @@ let UserController = class UserController {
         return this.firstService.removeUser(userId);
     }
 };
+exports.UserController = UserController;
 __decorate([
     (0, common_1.Get)(),
     __metadata("design:type", Function),
@@ -82,10 +83,9 @@ __decorate([
     __metadata("design:paramtypes", [String]),
     __metadata("design:returntype", Promise)
 ], UserController.prototype, "removeUser", null);
-UserController = __decorate([
+exports.UserController = UserController = __decorate([
     (0, common_1.Controller)(`${routes_1.routes.users}`),
     __metadata("design:paramtypes", [user_service_1.UserService])
 ], UserController);
-exports.UserController = UserController;
 ;
 //# sourceMappingURL=user.controller.js.map

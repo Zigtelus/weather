@@ -13,12 +13,12 @@ exports.User = void 0;
 const mongoose_1 = require("@nestjs/mongoose");
 let User = class User {
 };
+exports.User = User;
 __decorate([
     (0, mongoose_1.Prop)(),
     __metadata("design:type", String)
 ], User.prototype, "refreshToken", void 0);
-User = __decorate([
+exports.User = User = __decorate([
     (0, mongoose_1.Schema)()
 ], User);
-exports.User = User;
 //# sourceMappingURL=token-user.schema.js.map

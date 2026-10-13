@@ -39,9 +39,9 @@ let CommentsArticleService = class CommentsArticleService {
         return removeComment;
     }
 };
-CommentsArticleService = __decorate([
+exports.CommentsArticleService = CommentsArticleService;
+exports.CommentsArticleService = CommentsArticleService = __decorate([
     (0, common_1.Injectable)(),
     __metadata("design:paramtypes", [comments_article_repository_1.CommentsArticleRepository])
 ], CommentsArticleService);
-exports.CommentsArticleService = CommentsArticleService;
 //# sourceMappingURL=comments-article.service.js.map

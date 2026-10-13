@@ -42,17 +42,17 @@ let UserRepository = class UserRepository {
     }
     ;
     async remove(usersFilterQuery) {
-        return this.userModel.findOneAndRemove(usersFilterQuery);
+        return this.userModel.findOneAndDelete(usersFilterQuery);
     }
     async removeId(usersFilterQuery) {
-        return this.userModel.findOneAndRemove(usersFilterQuery);
+        return this.userModel.findOneAndDelete(usersFilterQuery);
     }
 };
-UserRepository = __decorate([
+exports.UserRepository = UserRepository;
+exports.UserRepository = UserRepository = __decorate([
     (0, common_1.Injectable)(),
     __param(0, (0, mongoose_1.InjectModel)(user_schema_1.User.name)),
     __metadata("design:paramtypes", [mongoose_2.Model])
 ], UserRepository);
-exports.UserRepository = UserRepository;
 ;
 //# sourceMappingURL=user.repository.js.map

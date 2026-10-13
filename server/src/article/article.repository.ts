@@ -56,7 +56,7 @@ export class ArticleRepository {
 
     const pathToImage = join(__dirname, '../../uploads/' + findArticle.cover)
     fs.unlinkSync(pathToImage)
-    return this.articleModel.findOneAndRemove({articleId})
+    return this.articleModel.findOneAndDelete({articleId})
   }
   
 

@@ -14,6 +14,7 @@ const mongoose_1 = require("@nestjs/mongoose");
 const date_last_edit_comment_dto_1 = require("../dto/date-last-edit-comment.dto");
 let CommentArticle = class CommentArticle {
 };
+exports.CommentArticle = CommentArticle;
 __decorate([
     (0, mongoose_1.Prop)({ required: true }),
     __metadata("design:type", String)
@@ -50,9 +51,8 @@ __decorate([
     (0, mongoose_1.Prop)({ required: true }),
     __metadata("design:type", date_last_edit_comment_dto_1.DateLastEditCommentDto)
 ], CommentArticle.prototype, "dateLastEdit", void 0);
-CommentArticle = __decorate([
+exports.CommentArticle = CommentArticle = __decorate([
     (0, mongoose_1.Schema)()
 ], CommentArticle);
-exports.CommentArticle = CommentArticle;
 exports.CommentArticleSchema = mongoose_1.SchemaFactory.createForClass(CommentArticle);
 //# sourceMappingURL=comment-article.schema.js.map

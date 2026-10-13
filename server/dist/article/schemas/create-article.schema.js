@@ -14,6 +14,7 @@ const mongoose_1 = require("@nestjs/mongoose");
 const date_last_edit_article_dto_1 = require("../dtos/date-last-edit-article.dto");
 let CreateArticle = class CreateArticle {
 };
+exports.CreateArticle = CreateArticle;
 __decorate([
     (0, mongoose_1.Prop)({ required: true }),
     __metadata("design:type", String)
@@ -58,9 +59,8 @@ __decorate([
     (0, mongoose_1.Prop)({ required: true }),
     __metadata("design:type", void 0)
 ], CreateArticle.prototype, "comments", void 0);
-CreateArticle = __decorate([
+exports.CreateArticle = CreateArticle = __decorate([
     (0, mongoose_1.Schema)()
 ], CreateArticle);
-exports.CreateArticle = CreateArticle;
 exports.CreateArticleSchema = mongoose_1.SchemaFactory.createForClass(CreateArticle);
 //# sourceMappingURL=create-article.schema.js.map

@@ -16,6 +16,7 @@ const date_last_edit_article_dto_1 = require("../dtos/date-last-edit-article.dto
 const statistics_article_schema_1 = require("./statistics-article.schema");
 let Article = class Article {
 };
+exports.Article = Article;
 __decorate([
     (0, mongoose_1.Prop)({ required: true }),
     __metadata("design:type", String)
@@ -56,9 +57,8 @@ __decorate([
     (0, mongoose_1.Prop)({ required: true, type: statistics_article_schema_1.StatisticsArticleSchema }),
     __metadata("design:type", statistics_article_dto_1.StatisticsArticleDto)
 ], Article.prototype, "statistics", void 0);
-Article = __decorate([
+exports.Article = Article = __decorate([
     (0, mongoose_1.Schema)()
 ], Article);
-exports.Article = Article;
 exports.ArticleSchema = mongoose_1.SchemaFactory.createForClass(Article);
 //# sourceMappingURL=article.schema.js.map

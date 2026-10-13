@@ -35,11 +35,11 @@ export class UserRepository  {
   };
 
   async remove (usersFilterQuery: FilterQuery<User>): Promise<User> {
-    return this.userModel.findOneAndRemove(usersFilterQuery);
+    return this.userModel.findOneAndDelete(usersFilterQuery);
   }
 
   async removeId (usersFilterQuery: FilterQuery<User>): Promise<User> {
-    return this.userModel.findOneAndRemove(usersFilterQuery);
+    return this.userModel.findOneAndDelete(usersFilterQuery);
   }
 
 

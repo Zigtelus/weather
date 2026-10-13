@@ -48,6 +48,7 @@ let CommentsArticleController = class CommentsArticleController {
         return this.commentsArticleService.removeComment(articleId, commentId, userId);
     }
 };
+exports.CommentsArticleController = CommentsArticleController;
 __decorate([
     (0, common_1.Post)('comments/:articleId'),
     __param(0, (0, common_1.Param)('articleId')),
@@ -100,9 +101,8 @@ __decorate([
     __metadata("design:paramtypes", [String, String, String]),
     __metadata("design:returntype", Promise)
 ], CommentsArticleController.prototype, "removeComment", null);
-CommentsArticleController = __decorate([
+exports.CommentsArticleController = CommentsArticleController = __decorate([
     (0, common_1.Controller)(`${routes_1.routes.comments}`),
     __metadata("design:paramtypes", [comments_article_service_1.CommentsArticleService])
 ], CommentsArticleController);
-exports.CommentsArticleController = CommentsArticleController;
 //# sourceMappingURL=comments-article.controller.js.map

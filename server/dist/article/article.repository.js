@@ -53,14 +53,14 @@ let ArticleRepository = class ArticleRepository {
             return 'this user is not the author of the article';
         const pathToImage = (0, path_1.join)(__dirname, '../../uploads/' + findArticle.cover);
         fs.unlinkSync(pathToImage);
-        return this.articleModel.findOneAndRemove({ articleId });
+        return this.articleModel.findOneAndDelete({ articleId });
     }
 };
-ArticleRepository = __decorate([
+exports.ArticleRepository = ArticleRepository;
+exports.ArticleRepository = ArticleRepository = __decorate([
     (0, common_1.Injectable)(),
     __param(0, (0, mongoose_1.InjectModel)(article_schema_1.Article.name)),
     __metadata("design:paramtypes", [mongoose_2.Model])
 ], ArticleRepository);
-exports.ArticleRepository = ArticleRepository;
 ;
 //# sourceMappingURL=article.repository.js.map

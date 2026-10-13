@@ -1,1 +1,1 @@
-export declare const IpAddress: (...dataOrPipes: any[]) => ParameterDecorator;
+export declare const IpAddress: (...dataOrPipes: unknown[]) => ParameterDecorator;

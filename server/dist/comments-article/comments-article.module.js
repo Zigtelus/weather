@@ -15,7 +15,8 @@ const comments_article_service_1 = require("./comments-article.service");
 const comments_article_schema_1 = require("./schema/comments-article.schema");
 let CommentsModule = class CommentsModule {
 };
-CommentsModule = __decorate([
+exports.CommentsModule = CommentsModule;
+exports.CommentsModule = CommentsModule = __decorate([
     (0, common_1.Module)({
         providers: [
             comments_article_service_1.CommentsArticleService,
@@ -27,5 +28,4 @@ CommentsModule = __decorate([
         ]
     })
 ], CommentsModule);
-exports.CommentsModule = CommentsModule;
 //# sourceMappingURL=comments-article.module.js.map

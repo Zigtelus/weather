@@ -32,7 +32,7 @@ let CommentsArticleRepository = class CommentsArticleRepository {
             return await new this.commentsArticlModel(createComments).save();
         }
         catch (error) {
-            return 'error message: ' + error.message;
+            return 'error message: ' + error;
         }
     }
     async addComment(createCommentArticleDto, articleId) {
@@ -49,7 +49,7 @@ let CommentsArticleRepository = class CommentsArticleRepository {
             return newComment;
         }
         catch (error) {
-            return 'error message: ' + error.message;
+            return 'error message: ' + error;
         }
     }
     async getComments() {
@@ -72,7 +72,7 @@ let CommentsArticleRepository = class CommentsArticleRepository {
             updateComments = await this.commentsArticlModel.findOneAndUpdate({ articleId }, { comments: findComment });
         }
         catch (error) {
-            return 'error message: ' + error.message;
+            return 'error message: ' + error;
         }
         return updateComments;
     }
@@ -81,10 +81,10 @@ let CommentsArticleRepository = class CommentsArticleRepository {
             const findComments = await this.commentsArticlModel.findOne({ articleId });
             if (findComments == null)
                 return 'this object was not found';
-            await this.commentsArticlModel.findOneAndRemove({ articleId });
+            await this.commentsArticlModel.findOneAndDelete({ articleId });
         }
         catch (error) {
-            return 'error message: ' + error.message;
+            return 'error message: ' + error;
         }
         return 'all the comments has been removed';
     }
@@ -98,16 +98,16 @@ let CommentsArticleRepository = class CommentsArticleRepository {
             const remakeArticle = await this.commentsArticlModel.findOneAndUpdate({ articleId }, { comments: [...removeComment] });
         }
         catch (error) {
-            return 'error message: ' + error.message;
+            return 'error message: ' + error;
         }
         return { articleId: articleId };
     }
 };
-CommentsArticleRepository = __decorate([
+exports.CommentsArticleRepository = CommentsArticleRepository;
+exports.CommentsArticleRepository = CommentsArticleRepository = __decorate([
     (0, common_1.Injectable)(),
     __param(0, (0, mongoose_1.InjectModel)(comments_article_schema_1.CommentsArticle.name)),
     __metadata("design:paramtypes", [mongoose_2.Model])
 ], CommentsArticleRepository);
-exports.CommentsArticleRepository = CommentsArticleRepository;
 ;
 //# sourceMappingURL=comments-article.repository.js.map

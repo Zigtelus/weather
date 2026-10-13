@@ -13,6 +13,7 @@ exports.FileThisSchema = exports.FileThis = void 0;
 const mongoose_1 = require("@nestjs/mongoose");
 let FileThis = class FileThis {
 };
+exports.FileThis = FileThis;
 __decorate([
     (0, mongoose_1.Prop)({ required: true }),
     __metadata("design:type", String)
@@ -37,9 +38,8 @@ __decorate([
     (0, mongoose_1.Prop)({ default: Date.now() }),
     __metadata("design:type", Date)
 ], FileThis.prototype, "date", void 0);
-FileThis = __decorate([
+exports.FileThis = FileThis = __decorate([
     (0, mongoose_1.Schema)()
 ], FileThis);
-exports.FileThis = FileThis;
 exports.FileThisSchema = mongoose_1.SchemaFactory.createForClass(FileThis);
 //# sourceMappingURL=file.schema.js.map

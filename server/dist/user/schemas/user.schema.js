@@ -14,6 +14,7 @@ const mongoose_1 = require("@nestjs/mongoose");
 const coords_user_schema_1 = require("./coords-user.schema");
 let User = class User {
 };
+exports.User = User;
 __decorate([
     (0, mongoose_1.Prop)({ required: true, unique: true }),
     __metadata("design:type", String)
@@ -50,9 +51,8 @@ __decorate([
     (0, mongoose_1.Prop)({ required: true }),
     __metadata("design:type", String)
 ], User.prototype, "role", void 0);
-User = __decorate([
+exports.User = User = __decorate([
     (0, mongoose_1.Schema)()
 ], User);
-exports.User = User;
 exports.UserSchema = mongoose_1.SchemaFactory.createForClass(User);
 //# sourceMappingURL=user.schema.js.map
