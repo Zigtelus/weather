@@ -1,0 +1,16 @@
+# Скрываем все файлы конфигураций во всех папках
+*.env
+
+# Скрываем папки зависимостей клиента и сервера
+node_modules/
+/client/node_modules/
+/server/node_modules/
+
+# Скрываем папки сборки (билды)
+dist/
+/server/dist/
+/client/build/
+/client/dist/
+
+# Скрываем системные файлы Mac
+.DS_Store
